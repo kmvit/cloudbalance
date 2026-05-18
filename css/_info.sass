@@ -1,0 +1,128 @@
+
+.s-info.rev .info_wrap
+	.text
+		order: 1
+	.image
+		order: 2
+		
+
+.s-info
+	.info_wrap
+		display: grid
+		grid-template-columns: repeat(2, 1fr)
+		gap: 64px
+		padding: 86px
+		border: 1px solid rgba(10, 102, 194, 0.2)
+		border-radius: 50px
+		overflow: hidden
+		img
+			max-width: 100%	
+		.image
+			margin: 0
+		.text
+			display: flex
+			flex-direction: column
+			align-items: flex-start
+			justify-content: space-between
+		ul
+			display: grid
+			grid-template-columns: repeat(2, 1fr)
+			gap: 64px
+			margin: 0
+			padding: 0
+			list-style-type: none
+			li
+				.icon
+					display: flex
+					justify-content: center
+					align-items: center
+					width: 72px
+					height: 72px
+					border: 1px solid rgba(10, 102, 194, 0.2)
+					border-radius: 24px
+					margin-bottom: 24px
+				span
+					display: block
+					margin-bottom: 8px
+					font-size: 30px
+					line-height: 36px
+					letter-spacing: -0.01em
+					color: #2B3F51
+				p
+					margin: 0
+					font-size: 16px
+					line-height: 24px
+					color: #2B3F51
+
+@media(max-width: 1300px)
+	.s-info .info_wrap
+		padding: 30px
+		.btn
+			margin-top: 30px
+
+@media(max-width: 1199px)
+	.s-info .info_wrap 
+		display: flex
+		ul
+			gap: 48px
+		.image
+			width: 100%
+			max-width: 420px
+		.text
+			width: calc( 100% - 484px )
+
+@media(max-width: 1100px)
+	.s-info .info_wrap 
+		gap: 48px
+		.image
+			max-width: 380px
+		.text
+			width: calc( 100% - 428px )
+
+@media(max-width: 996px)
+	.s-info .info_wrap 
+		flex-direction: column
+		.text
+			width: 100%
+			order: 1
+		.image
+			max-width: none
+			margin: 0 auto
+			text-align: center
+			order: 2
+
+@media(max-width: 992px)
+	.s-info .info_wrap
+		padding: 40px
+		gap: 48px
+		ul
+			gap: 42px
+			li 
+				.icon
+					margin-bottom: 20px
+				span
+					margin-bottom: 12px
+		.image
+			margin-bottom: 0 !important
+		.btn
+			margin-top: 32px
+
+@media(max-width: 768px)
+	.s-info.rev .info_wrap 
+		.image
+			order: 2 !important
+		.text
+			order: 1 !important
+
+	.s-info .info_wrap
+		border-radius: 15px
+
+@media(max-width: 520px)
+	.s-info .info_wrap ul li
+		span
+			font-size: 26px
+			line-height: 1.2
+		p
+			font-size: 14px
+			line-height: 1.2
+			opacity: .7

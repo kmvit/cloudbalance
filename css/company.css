@@ -1,0 +1,107 @@
+/* ===== COMPANY BLOCKS ===== */
+.company_block {
+	margin-bottom: 32px;
+}
+
+.company_block:last-child {
+	margin-bottom: 0;
+}
+
+.company_block h3 {
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 700;
+	color: #2B3F51;
+	margin-bottom: 20px;
+}
+
+/* ===== RADIO GROUP ===== */
+.radio_group {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 24px;
+	padding: 8px 0;
+	margin-bottom: 16px;
+	background: transparent;
+}
+
+.radio_group .radio_label {
+	flex: 1 0 100%;
+	font-size: 13px;
+	line-height: 1;
+	color: #2B3F51;
+	opacity: 0.5;
+	margin-bottom: 4px;
+}
+
+.radio {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 15px;
+	color: #2B3F51;
+	cursor: pointer;
+	user-select: none;
+}
+
+.radio input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.radio_dot {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 18px;
+	height: 18px;
+	background: #FFFFFF;
+	border: 1.5px solid rgba(10, 102, 194, 0.25);
+	border-radius: 50%;
+	transition: 0.3s;
+}
+
+.radio_dot::before {
+	content: "";
+	width: 8px;
+	height: 8px;
+	background: #FF6809;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: 0.2s;
+}
+
+.radio input:checked + .radio_dot {
+	border-color: #FF6809;
+}
+
+.radio input:checked + .radio_dot::before {
+	transform: scale(1);
+}
+
+/* ===== "проекты" tag between sections ===== */
+.projects_tag_wrap {
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+	margin-bottom: -40px;
+	position: relative;
+	z-index: 2;
+}
+
+.projects_tag {
+	display: inline-flex;
+	align-items: center;
+	padding: 10px 24px;
+	background: #FFFFFF;
+	border-radius: 14px;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #0A66C2;
+}

@@ -1,0 +1,96 @@
+
+.s-banner
+	.banner_wrap
+		display: grid
+		grid-template-columns: repeat(2, 1fr)
+		gap: 64px
+		padding: 86px
+		border: 1px solid rgba(10, 102, 194, 0.2)
+		border-radius: 50px
+		overflow: hidden
+		.col
+			position: relative
+			flex: unset
+		p
+			margin-bottom: 42px
+			color: #2B3F51
+			font-size: 20px
+			line-height: 30px
+			font-weight: 300
+		img
+			position: absolute
+			width: calc( 100% + 40px )
+			max-width: 725px
+			top: 50%
+			left: calc(50% - 7px)
+			width: calc(100% + 190px)
+			transform: translate(-50%, -50%)
+		.buttons
+			display: flex
+			gap: 16px
+
+@media(max-width: 1300px)
+	h1 
+		font-size: 60px !important
+		line-height: 1.2 !important
+
+	.s-banner .banner_wrap img
+		position: relative
+		width: 100%
+		top: unset
+		max-width: 100%
+		left: unset
+		transform: unset
+
+@media(max-width: 1199px)
+	h1 
+		font-size: 52px !important
+
+	.s-banner .banner_wrap
+		gap: 48px
+		padding: 45px
+
+@media(max-width: 996px)
+	h1 
+		font-size: 48px !important
+		line-height: 58px !important
+
+	.s-banner .banner_wrap p
+		font-size: 18px
+		line-height: 1.4
+
+@media(max-width: 900px)
+	.s-banner .banner_wrap
+		grid-template-columns: repeat(1, 1fr)
+
+@media(max-width: 764px)
+	h1
+		font-size: 36px !important
+		line-height: 44px !important
+
+	.s-banner .banner_wrap 
+		padding-top: 0 !important
+		gap: 0 !important
+		p
+			margin-bottom: 32px
+			font-size: 16px
+
+	.s-banner .banner_wrap
+		border-radius: 15px
+
+@media(max-width: 520px)
+	h1
+		margin-bottom: 12px
+		font-size: 30px !important
+		line-height: 36px !important
+		br
+			display: none
+
+	.s-banner .banner_wrap 
+		h1
+			margin-bottom: 12px
+		p
+			margin-bottom: 20px
+			font-size: 16px
+			line-height: 24px
+			font-weight: 400

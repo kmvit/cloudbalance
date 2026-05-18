@@ -1,0 +1,66 @@
+
+.s-why
+	.why_wrap
+		display: flex
+		gap: 48px
+		padding: 86px
+		border: 1px solid rgba(10, 102, 194, 0.2)
+		border-radius: 50px
+		.block_title
+			text-align: left
+		.page-desc
+			margin-bottom: 48px
+			text-align: left
+		.text
+			width: 100%
+			max-width: 440px
+		.buttons
+			display: flex
+			gap: 16px
+		.image
+			display: grid
+			grid-template-columns: repeat(2, 1fr)
+			gap: 24px
+			width: calc(100% -  488px)
+			margin: 0
+			img
+				height: 100%
+				object-fit: cover
+
+@media(max-width: 1300px)
+	.s-why .why_wrap .image 
+		display: flex
+		img:last-child
+			display: none
+
+@media(max-width: 992px) 
+	.s-why .why_wrap
+		flex-direction: row !important
+
+@media(max-width: 820px)
+	.s-why .why_wrap 
+		.image
+			max-width: 300px
+			img
+				width: 100%
+				height: auto
+		.text
+			width: calc(100% - 348px)
+
+@media(max-width: 768px)
+	.s-why .why_wrap
+		padding: 24px
+		border-radius: 15px
+		flex-direction: column !important
+		.text
+			width: 100%
+
+@media(max-width: 420px)
+	.s-why .why_wrap 
+		.page-desc
+			margin-bottom: 32px
+		.image
+			margin: 0 auto
+		.buttons 
+			flex-direction: column
+	

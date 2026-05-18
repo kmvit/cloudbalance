@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Cloud Balance — Дашборд</title>
+	<meta name="description" content="Финансовый дашборд Cloud Balance">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="icon" href="images/favicon.png">
+
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="libs/fancybox/css/fancybox.css">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/media.css">
+	<link rel="stylesheet" href="css/ui-extensions.css">
+	<link rel="stylesheet" href="css/page10.css">
+
+	<script src="libs/jquery/jquery-3.6.0.min.js" defer></script>
+	<script src="libs/fancybox/js/fancybox.umd.js" defer></script>
+	<script src="js/common.js" defer></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+	<header>
+		<div class="h_top">
+			<div class="container">
+				<div class="h_top_wrap">
+					<a href="index.html" class="logo">
+						<div class="img"><img src="images/logo.svg" alt=""></div>
+						<p>Cloud Balance</p>
+					</a>
+					<ul class="h_menu">
+						<li><a href="#">Бухучет</a></li>
+						<li><a href="#" class="active">Налоги</a></li>
+						<li><a href="#">Кадры</a></li>
+						<li><a href="#" class="parent">Ресурсы<div class="arrow"><svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></a></li>
+						<li><a href="#" class="parent">Продукт <div class="arrow"><svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></a></li>
+					</ul>
+					<a href="#" class="btn">Вход</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<!-- Open Projects (top) -->
+		<section class="s-adv section">
+			<div class="container">
+				<div class="desr"><small>Проекты</small></div>
+				<span class="block_title">Открытые проекты</span>
+				<p class="page-desc">Видите все активные работы одним взглядом</p>
+				<div class="adv_wrap">
+					<ul class="adv_list">
+						<li style="background-image: url(images/Card0.png);" class="image">
+							<div class="icon">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.21481 8.21493C11.2291 5.20068 15.398 3.33337 19.9999 3.33337C24.6018 3.33337 28.7708 5.20068 31.785 8.21493C34.7993 11.2292 36.6666 15.3981 36.6666 20C36.6666 24.602 34.7993 28.7709 31.785 31.7852C28.7708 34.7994 24.6018 36.6667 19.9999 36.6667C15.398 36.6667 11.2291 34.7994 8.21481 31.7852C5.20056 28.7709 3.33325 24.602 3.33325 20C3.33325 15.3981 5.20056 11.2292 8.21481 8.21493ZM19.9999 6.66671C16.3176 6.66671 12.9865 8.15727 10.5718 10.5719C8.15714 12.9866 6.66659 16.3177 6.66659 20C6.66659 23.6824 8.15714 27.0134 10.5718 29.4281C12.9865 31.8428 16.3176 33.3334 19.9999 33.3334C23.6823 33.3334 27.0133 31.8428 29.428 29.4281C31.8427 27.0134 33.3333 23.6824 33.3333 20C33.3333 16.3177 31.8427 12.9866 29.428 10.5719C27.0133 8.15727 23.6823 6.66671 19.9999 6.66671Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M19.9999 11.6666C20.9204 11.6666 21.6666 12.4128 21.6666 13.3333V20C21.6666 20.9204 20.9204 21.6666 19.9999 21.6666C19.0794 21.6666 18.3333 20.9204 18.3333 20L18.3333 13.3333C18.3333 12.4128 19.0794 11.6666 19.9999 11.6666Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M18.8214 18.8215C19.4723 18.1707 20.5276 18.1707 21.1784 18.8215L24.5118 22.1549C25.1626 22.8057 25.1626 23.861 24.5118 24.5119C23.8609 25.1628 22.8056 25.1628 22.1547 24.5119L18.8214 21.1786C18.1705 20.5277 18.1705 19.4724 18.8214 18.8215Z" fill="white"/></svg>
+							</div>
+							<div class="title">Сроки сдачи отчетности</div>
+							<p>Не пропустите ни одних важных сроков и дедлайнов</p>
+							<a href="" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50423C7.98207 2.27642 8.35142 2.27642 8.57923 2.50423L12.6626 6.58756C12.8904 6.81537 12.8904 7.18471 12.6626 7.41252L8.57923 11.4959C8.35142 11.7237 7.98207 11.7237 7.75427 11.4959C7.52646 11.268 7.52646 10.8987 7.75427 10.6709L10.8418 7.58337H1.75008C1.42792 7.58337 1.16675 7.32221 1.16675 7.00004C1.16675 6.67787 1.42792 6.41671 1.75008 6.41671H10.8418L7.75427 3.32919C7.52646 3.10138 7.52646 2.73203 7.75427 2.50423Z" fill="#0A66C2"/></svg></a>
+						</li>
+						<li style="background-image: url(images/Card.png);" class="image">
+							<div class="icon">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.458 6.86413C20.1587 6.77863 19.8415 6.77863 19.5422 6.86414L11.2089 9.24509C10.4934 9.44952 10.0001 10.1035 10.0001 10.8476V19.805C10.0001 23.5728 11.8197 27.1086 14.8856 29.2986L19.0314 32.2598C19.6108 32.6738 20.3893 32.6738 20.9688 32.2598L25.1145 29.2986C28.1805 27.1086 30.0001 23.5728 30.0001 19.805V10.8476C30.0001 10.1035 29.5068 9.44952 28.7913 9.24509L20.458 6.86413ZM18.6265 3.65906C19.5242 3.40255 20.4759 3.40255 21.3737 3.65905L29.707 6.04001C31.8535 6.65329 33.3334 8.61522 33.3334 10.8476V19.805C33.3334 24.6493 30.9939 29.1954 27.052 32.0111L22.9063 34.9723C21.1678 36.2141 18.8324 36.2141 17.0939 34.9723L12.9482 32.0111C9.00623 29.1954 6.66675 24.6493 6.66675 19.805V10.8476C6.66675 8.61523 8.14663 6.6533 10.2931 6.04001L18.6265 3.65906Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M26.1399 13.7842C26.8114 14.4137 26.8454 15.4684 26.2159 16.1399L19.9659 22.8066C19.3688 23.4435 18.3814 23.5117 17.7024 22.963L13.9524 19.9327C13.2365 19.3542 13.1251 18.3048 13.7037 17.5889C14.2822 16.8729 15.3316 16.7616 16.0475 17.3401L18.5931 19.3972L23.7841 13.8601C24.4136 13.1886 25.4684 13.1546 26.1399 13.7842Z" fill="white"/></svg>
+							</div>
+							<div class="title">Открытые больничные листы</div>
+							<p>Отслеживайте статусы и даты больничных сотрудников</p>
+							<a href="" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50423C7.98207 2.27642 8.35142 2.27642 8.57923 2.50423L12.6626 6.58756C12.8904 6.81537 12.8904 7.18471 12.6626 7.41252L8.57923 11.4959C8.35142 11.7237 7.98207 11.7237 7.75427 11.4959C7.52646 11.268 7.52646 10.8987 7.75427 10.6709L10.8418 7.58337H1.75008C1.42792 7.58337 1.16675 7.32221 1.16675 7.00004C1.16675 6.67787 1.42792 6.41671 1.75008 6.41671H10.8418L7.75427 3.32919C7.52646 3.10138 7.52646 2.73203 7.75427 2.50423Z" fill="#0A66C2"/></svg></a>
+						</li>
+						<li style="background-image: url(images/Card0.png);" class="image">
+							<div class="icon">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="white" transform="scale(1.6)"/></svg>
+							</div>
+							<div class="title">Топ статьи расходов</div>
+							<p>Посмотри, куда уходят деньги вашего проекта</p>
+							<a href="" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50423C7.98207 2.27642 8.35142 2.27642 8.57923 2.50423L12.6626 6.58756C12.8904 6.81537 12.8904 7.18471 12.6626 7.41252L8.57923 11.4959C8.35142 11.7237 7.98207 11.7237 7.75427 11.4959C7.52646 11.268 7.52646 10.8987 7.75427 10.6709L10.8418 7.58337H1.75008C1.42792 7.58337 1.16675 7.32221 1.16675 7.00004C1.16675 6.67787 1.42792 6.41671 1.75008 6.41671H10.8418L7.75427 3.32919C7.52646 3.10138 7.52646 2.73203 7.75427 2.50423Z" fill="#0A66C2"/></svg></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Куда уходят деньги -->
+		<section class="s-spending section">
+			<div class="container">
+				<div class="desr"><small>Расходы</small></div>
+				<span class="block_title">Куда уходят ваши деньги</span>
+				<p class="page-desc">Столбчатая диаграмма показывает топ-5 статей расходов. Видите сразу, какие траты самые крупные.</p>
+				<div class="spending_actions">
+					<a href="#" class="btn blue">Экспорт</a>
+					<a href="#" class="btn">Анализ</a>
+				</div>
+				<div class="spending_card">
+					<div class="param type2">
+						<div class="rows"><label>Дата</label><input type="text" placeholder="ДД.ММ.ГГ"></div>
+						<div class="rows"><label>Период</label><select><option>Выберите период</option></select></div>
+						<div class="rows"><label>Контрагент</label><input type="text" placeholder="Введите ИНН/КПП"></div>
+						<div class="rows"><label>Контрагент</label><input type="text" placeholder="Название"></div>
+					</div>
+					<div class="osv-chart df" aria-label="График расходов">
+						<p class="osv-chart__caption">Сумма расходов <br>(рублей)</p>
+						<div class="osv-chart__plot">
+							<div class="osv-chart__y" aria-hidden="true">
+								<span>3 500</span><span>3 000</span><span>2 500</span><span>2 000</span><span>1 500</span><span>1 000</span><span>500</span><span>0</span>
+							</div>
+							<div class="osv-chart__canvas">
+								<div class="osv-chart__grid" aria-hidden="true">
+									<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+								</div>
+								<ul class="osv-chart__bars">
+									<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 96%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Зарплата сотрудников</span></li>
+									<li class="osv-chart__bar-item osv-chart__bar-item--active"><div class="osv-chart__bar-col" style="--bar-h: 68%"><div class="osv-chart__tooltip">2023</div><span class="osv-chart__pin" aria-hidden="true"></span><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Аренда офиса</span></li>
+									<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 52%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Маркетинг и реклама</span></li>
+									<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 40%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">ИТ инфраструктура</span></li>
+									<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 22%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Поставки и доставка</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Фильтруйте по периодам и отделам (1) -->
+		<section class="s-info section">
+			<div class="container">
+				<div class="desr"><small>Настройка</small></div>
+				<span class="block_title">Фильтруйте по периодам и отделам</span>
+				<p class="page-desc">Выберите показатель для отображения</p>
+				<div class="info_wrap">
+					<div class="text">
+						<span class="block_title">Переключайтесь между метриками</span>
+						<p class="page-desc">Панель адаптируется под то, что вам нужно видеть каждый день. Зарплата, отпуска, расходы — выбирайте сами.</p>
+						<div class="buttons">
+							<a href="" class="btn blue">Сохранить</a>
+							<a href="" class="btn">Применить <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50411C7.98207 2.2763 8.35142 2.2763 8.57923 2.50411L12.6626 6.58744C12.8904 6.81524 12.8904 7.18459 12.6626 7.4124L8.57923 11.4957C8.35142 11.7235 7.98207 11.7235 7.75427 11.4957C7.52646 11.2679 7.52646 10.8986 7.75427 10.6708L10.8418 7.58325H1.75008C1.42792 7.58325 1.16675 7.32208 1.16675 6.99992C1.16675 6.67775 1.42792 6.41658 1.75008 6.41658H10.8418L7.75427 3.32906C7.52646 3.10126 7.52646 2.73191 7.75427 2.50411Z" fill="#0A66C2"/></svg></a>
+						</div>
+					</div>
+					<div class="image">
+						<img src="images/metrics-panel.png" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Ваша финансовая панель -->
+		<section class="s-panel section">
+			<div class="container">
+				<div class="desr"><small>Обзор</small></div>
+				<span class="block_title">Ваша финансовая панель</span>
+				<p class="page-desc">Все ключевые показатели бизнеса на одном экране. Видите то, что важно.</p>
+				<div class="panel_actions">
+					<a href="#" class="btn dp blue">Начать</a>
+					<a href="#" class="btn dp">Подробнее</a>
+				</div>
+				<div class="panel_card">
+					<div class="panel_text">
+						<span class="panel_title">Что происходит с вашим бизнесом</span>
+						<p>Четыре цифры, которые говорят правду. Остальное — детали.</p>
+						<div class="buttons">
+							<a href="#" class="btn blue">Скачать</a>
+							<a href="#" class="btn">Углубиться <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50411C7.98207 2.2763 8.35142 2.2763 8.57923 2.50411L12.6626 6.58744C12.8904 6.81524 12.8904 7.18459 12.6626 7.4124L8.57923 11.4957C8.35142 11.7235 7.98207 11.7235 7.75427 11.4957C7.52646 11.2679 7.52646 10.8986 7.75427 10.6708L10.8418 7.58325H1.75008C1.42792 7.58325 1.16675 7.32208 1.16675 6.99992C1.16675 6.67775 1.42792 6.41658 1.75008 6.41658H10.8418L7.75427 3.32906C7.52646 3.10126 7.52646 2.73191 7.75427 2.50411Z" fill="#0A66C2"/></svg></a>
+						</div>
+					</div>
+					<div class="panel_metrics">
+						<div class="metric"><p>2.4M</p><small>Общий оборот</small></div>
+						<div class="metric"><p>18</p><small>Активных контрагентов</small></div>
+						<div class="metric"><p>12</p><small>Сотрудников в штате</small></div>
+						<div class="metric"><p>94%</p><small>Налогов уплачены вовремя</small></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Open Projects (again) -->
+		<section class="s-adv section">
+			<div class="container">
+				<div class="desr"><small>Проекты</small></div>
+				<span class="block_title">Открытые проекты</span>
+				<p class="page-desc">Видите все активные работы одним взглядом</p>
+				<div class="adv_wrap">
+					<ul class="adv_list">
+						<li style="background-image: url(images/Card0.png);" class="image">
+							<div class="icon">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.21481 8.21493C11.2291 5.20068 15.398 3.33337 19.9999 3.33337C24.6018 3.33337 28.7708 5.20068 31.785 8.21493C34.7993 11.2292 36.6666 15.3981 36.6666 20C36.6666 24.602 34.7993 28.7709 31.785 31.7852C28.7708 34.7994 24.6018 36.6667 19.9999 36.6667C15.398 36.6667 11.2291 34.7994 8.21481 31.7852C5.20056 28.7709 3.33325 24.602 3.33325 20C3.33325 15.3981 5.20056 11.2292 8.21481 8.21493Z" fill="white"/></svg>
+							</div>
+							<div class="title">Сроки сдачи отчетности</div>
+							<p>Не пропустите ни одних важных сроков и дедлайнов</p>
+							<a href="" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.75427 2.50423L12.6626 6.58756L7.75427 11.4959L10.8418 7.58337H1.75008V6.41671H10.8418L7.75427 3.32919Z" fill="#0A66C2"/></svg></a>
+						</li>
+						<li style="background-image: url(images/Card.png);" class="image">
+							<div class="icon">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.458 6.86413C20.1587 6.77863 19.8415 6.77863 19.5422 6.86414L11.2089 9.24509C10.4934 9.44952 10.0001 10.1035 10.0001 10.8476V19.805C10.0001 23.5728 11.8197 27.1086 14.8856 29.2986L19.0314 32.2598C19.6108 32.6738 20.3893 32.6738 20.9688 32.2598L25.1145 29.2986C28.1805 27.1086 30.0001 23.5728 30.0001 19.805V10.8476Z" fill="white"/></svg>
+							</div>
+							<div class="title">Открытые больничные листы</div>
+							<p>Отслеживайте статусы и даты больничных сотрудников</p>
+							<a href="" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.75427 2.50423L12.6626 6.58756L7.75427 11.4959L10.8418 7.58337H1.75008V6.41671H10.8418L7.75427 3.32919Z" fill="#0A66C2"/></svg></a>
+						</li>
+						<li style="background-image: url(images/Card0.png);" class="image">
+							<div class="icon">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="white" transform="scale(1.6)"/></svg>
+							</div>
+							<div class="title">Топ статьи расходов</div>
+							<p>Посмотри, куда уходят деньги вашего проекта</p>
+							<a href="" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.75427 2.50423L12.6626 6.58756L7.75427 11.4959L10.8418 7.58337H1.75008V6.41671H10.8418L7.75427 3.32919Z" fill="#0A66C2"/></svg></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Фильтруйте — 3 dark cards -->
+		<section class="s-adv section">
+			<div class="container">
+				<div class="desr"><small>Настройка</small></div>
+				<span class="block_title">Фильтруйте по периодам и отделам</span>
+				<p class="page-desc">Выберите показатель для отображения</p>
+				<div class="adv_wrap">
+					<ul class="adv_list">
+						<li>
+							<div class="icon">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 20L16 28L32 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+							</div>
+							<div class="title">Переключайтесь между метриками</div>
+							<p>Панель адаптируется под то, что вам нужно видеть каждый день. Зарплата, отпуска, расходы — выбирайте сами.</p>
+							<a href="" class="btn wh">Сохранить <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.75427 2.50423L12.6626 6.58756L7.75427 11.4959L10.8418 7.58337H1.75008V6.41671H10.8418L7.75427 3.32919Z" fill="#0A66C2"/></svg></a>
+						</li>
+						<li>
+							<div class="icon">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="28" height="26" rx="3" stroke="white" stroke-width="2.5"/><path d="M6 14H34" stroke="white" stroke-width="2.5"/><path d="M12 4V10M28 4V10" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+							</div>
+							<div class="title">Период и отдел</div>
+							<p>Сужайте данные по времени и структуре компании.</p>
+							<a href="" class="btn wh">Уточнить <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.75427 2.50423L12.6626 6.58756L7.75427 11.4959L10.8418 7.58337H1.75008V6.41671H10.8418L7.75427 3.32919Z" fill="#0A66C2"/></svg></a>
+						</li>
+						<li>
+							<div class="icon">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14" stroke="white" stroke-width="2.5"/><path d="M20 12V20L26 24" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+							</div>
+							<div class="title">Показатели в реальном времени</div>
+							<p>Обновляются каждый час без задержек.</p>
+							<a href="" class="btn wh">Уточнить <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.75427 2.50423L12.6626 6.58756L7.75427 11.4959L10.8418 7.58337H1.75008V6.41671H10.8418L7.75427 3.32919Z" fill="#0A66C2"/></svg></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="f_top">
+			<div class="container">
+				<div class="f_top_wrap">
+					<div class="col">
+						<div class="top">
+							<a href="index.html" class="logo">
+								<div class="img"><img src="images/logo.svg" alt=""></div>
+								<p>Cloud Balance</p>
+							</a>
+							<ul class="f_info">
+								<li><a href="#">support@allinsaas.ru</a></li>
+								<li><a href="#">+7 (495) 000-0000</a></li>
+								<li><p>Москва, Россия, центр города</p></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col menu">
+						<ul class="f_menu">
+							<li><a href="#">О платформе</a></li>
+							<li><a href="#">Функции</a></li>
+							<li><a href="#">Тарифы</a></li>
+							<li><a href="#">Вход</a></li>
+							<li><a href="#">Регистрация</a></li>
+						</ul>
+						<ul class="f_menu">
+							<li><a href="#">Поддержка</a></li>
+							<li><a href="#">Блог</a></li>
+							<li><a href="#">Интеграции</a></li>
+							<li><a href="#">Документация</a></li>
+							<li><a href="#">Статус сервиса</a></li>
+						</ul>
+					</div>
+					<div class="col">
+						<ul class="links">
+							<li><a href="">Политика конфиденциальности</a></li>
+							<li><a href="" class="active">Условия использования</a></li>
+							<li><a href="">Управление cookies</a></li>
+						</ul>
+						<p class="copy">&copy; 2025 All-in-One. Все права защищены.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>

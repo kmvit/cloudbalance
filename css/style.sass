@@ -1,0 +1,448 @@
+
+$accent: #0A66C2
+$text: #2B3F51
+
+a
+	text-decoration: none
+
+.logo
+	max-width: 166px
+	display: flex
+	align-items: center
+	gap: 20px
+	.img
+		width: 70px
+		img
+			width: 100%
+	p
+		margin: 0
+		width: calc(100% - 90px)
+		font-weight: 700
+		font-size: 20px
+		line-height: 120%
+		color: #2B3F51
+
+.soc
+	display: flex
+	margin: 0
+	padding: 0
+	list-style-type: none
+	gap: 12px
+	li 
+		line-height: 1
+		a
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 24px
+			height: 24px
+			transition: .3s
+			&:hover svg path
+				fill: #FF6809
+				transition: .3s
+			svg
+				max-width: 100%	
+				max-height: 100%
+
+.section
+	padding: 56px 0
+
+.desr
+	text-align: center
+	small
+		display: inline-flex
+		padding: 0 24px
+		margin: 0 auto 24px
+		justify-content: center
+		align-items: center
+		height: 44px
+		text-transform: uppercase
+		color: #0A66C2
+		font-size: 12px
+		font-weight: 700
+		background: #FFFFFF
+		border-radius: 16px
+
+.block_title
+	display: block
+	margin-bottom: 12px
+	font-size: 48px
+	line-height: 58px
+	text-align: center
+	letter-spacing: -0.01em
+	color: #2B3F51
+
+.page-desc
+	margin-bottom: 46px
+	font-size: 16px
+	line-height: 24px
+	text-align: center
+	color: #2B3F51
+
+.btn
+	display: inline-flex
+	justify-content: center
+	align-items: center
+	gap: 8px
+	height: 48px
+	padding: 0 24px
+	background: rgba(10, 102, 194, 0.1)
+	border: none
+	color: $accent
+	font-weight: 700
+	font-size: 12px
+	text-transform: uppercase
+	border-radius: 16px
+	transition: .3s
+	cursor: pointer
+	&:hover
+		opacity: .8
+.btn.wh
+	background: #FFFFFF
+	color: #0A66C2
+.btn.blue
+	background: #0A66C2
+	color: #FFFFFF
+.btn.dp
+	height: 88px
+	padding: 0 64px
+	font-size: 16px
+	border-radius: 24px
+.btn.accent
+	background: #FF6809
+	color: #ffff
+
+header
+	.h_top
+		padding: 24px 0
+		.h_top_wrap
+			display: flex
+			align-items: center
+			justify-content: space-between
+			.h_menu
+				display: flex
+				gap: 50px
+				margin: 0
+				padding: 0
+				list-style-type: none
+				li a
+					position: relative
+					display: flex
+					align-items: center
+					gap: 8px
+					color: $text
+					font-size: 16px
+					line-height: 24px
+					transition: .3s
+					&:hover
+						color: $accent
+						svg path
+							fill: $accent
+					&.parent
+
+					.arrow
+			.hamburger
+				display: none
+				justify-content: center
+				align-items: center
+				width: 24px
+				height: 24px
+
+
+footer
+	padding: 56px 0
+	border-top: 1px solid rgba(10, 102, 194, 0.2)
+	.f_top .f_top_wrap
+		display: flex
+		justify-content: space-between
+		.col
+			flex: unset
+			&:first-child
+				display: flex
+				justify-content: space-between
+				flex-direction: column
+			&:last-child
+				display: flex
+				justify-content: space-between
+				flex-direction: column
+			&.menu
+				display: flex
+				justify-content: space-between
+				width: 327px
+		ul
+			margin: 0
+			padding: 0
+			list-style-type: none
+		.soc
+			margin-top: auto
+		.f_menu
+			display: flex
+			flex-direction: column
+			gap: 30px
+			li
+				line-height: 1
+				a
+					font-size: 16px
+					color: #2B3F51
+					line-height: 24px
+					transition: .3s
+					&.active
+						color: #0A66C2
+					&:hover
+						color: #0A66C2
+		.f_info
+			display: flex
+			flex-direction: column
+			gap: 8px
+			margin: 32px 0
+			li
+				line-height: 1
+				a, p
+					font-size: 16px
+					line-height: 1
+					color: #2B3F51
+				a
+					text-decoration: underline
+	.links
+		display: flex
+		flex-direction: column
+		gap: 24px
+		margin: 0
+		padding: 0
+		list-style-type: none
+		li
+			line-height: 1
+			a
+				font-size: 16px
+				color: #2B3F51
+				line-height: 24px
+				transition: .3s
+				&.active
+					color: #0A66C2
+				&:hover
+					color: #0A66C2
+	.copy
+		margin: 0
+		font-size: 16px
+		line-height: 24px
+		color: #2B3F51
+		opacity: 0.3
+	.f_bottom
+		margin-top: 32px
+		padding-top: 32px
+		border-top: 1px solid rgba(10, 102, 194, 0.2)
+		display: none
+		.links
+			gap: 16px
+			margin-bottom: 32px
+
+
+@import '_tariff.sass'
+@import '_faq.sass'
+@import '_why.sass'
+@import '_contacts.sass'
+@import '_gallery.sass'
+@import '_info.sass'
+@import '_adv.sass'
+@import '_banner.sass'
+
+
+// ====== RESPONSIVE ======
+@media (max-width: 1300px)
+	.btn.dp
+		height: 60px
+
+@media (max-width: 1199px)
+	footer .f_top .f_top_wrap 
+		.f_menu, .links
+			gap: 18px
+
+@media (max-width: 996px)
+	footer 
+		.f_top .f_top_wrap 
+			// display: grid
+			// grid-template-columns: repeat(2, 1fr)
+			justify-content: flex-start
+			gap: 130px
+			.col:first-child
+				max-width: 300px
+			.col:last-child
+				display: none
+			.col.menu
+				gap: 150px
+				width: auto
+		.f_bottom
+			display: block
+
+// Tablets
+@media (max-width: 992px)
+	header .h_top .h_top_wrap
+		.h_menu
+			display: none
+	.section
+		padding: 48px 0
+	.block_title
+		font-size: 36px
+		line-height: 44px
+	.s-banner .banner_wrap,
+	.s-info .info_wrap,
+	.s-why .why_wrap,
+	.s-contacts .contacts_wrap
+		padding: 48px
+	.s-adv .adv_wrap .adv_list
+		grid-template-columns: repeat(2, 1fr)
+	.s-info .info_wrap
+		grid-template-columns: 1fr
+		gap: 40px
+		ul
+			grid-template-columns: 1fr
+			gap: 32px
+	.s-gallery .gallery_wrap .gallery_list
+		grid-template-columns: repeat(2, 1fr)
+	.s-tariff .tariff_wrap .tariff_list
+		grid-template-columns: repeat(2, 1fr)
+	.s-why .why_wrap
+		flex-direction: column
+		.image
+			width: 100%
+	.s-contacts .contacts_wrap
+		flex-direction: column
+	.s-faq .faq_wrap
+		flex-direction: column
+		.faq_list
+			width: 100%
+		.form
+			max-width: 100%
+
+// Phones
+@media (max-width: 768px)
+	.btn
+		height: 42px
+
+	header .h_top .h_top_wrap 
+		.btn
+			margin-left: auto
+		.hamburger
+			display: flex
+			margin-left: 20px
+
+	header .h_top
+		padding: 16px 0
+	.logo
+		max-width: 150px
+		gap: 12px
+		.img
+			width: 52px
+		p
+			font-size: 16px
+	.btn.dp
+		height: 56px
+		padding: 0 24px
+		font-size: 14px
+		border-radius: 20px
+	.section
+		padding: 40px 0
+	.block_title
+		font-size: 30px
+		line-height: 36px
+	.page-desc
+		margin-bottom: 32px
+	.s-banner .banner_wrap
+		grid-template-columns: 1fr
+		padding: 24px
+		gap: 24px
+		.col
+			position: relative
+		.col:nth-child(2)
+			order: -1
+		img
+			position: static
+			top: auto
+			left: auto
+			transform: none
+			width: 100%
+			max-width: 100%
+		.buttons
+			flex-direction: column
+			.btn
+				width: 100%
+	.s-adv .adv_wrap .adv_list
+		grid-template-columns: 1fr
+		gap: 24px
+		li
+			padding: 32px 24px
+			&:first-child
+				grid-column-end: span 1
+			.icon
+				margin-top: -32px
+				margin-bottom: 24px
+	.s-info .info_wrap
+		padding: 24px
+		gap: 32px
+		grid-template-columns: 1fr
+		.image
+			margin-bottom: 16px
+		ul
+			grid-template-columns: 1fr
+			gap: 24px
+	.s-info.rev .info_wrap
+		.text
+			order: 2
+		.image
+			order: 1
+	.s-gallery .gallery_wrap .gallery_list
+		grid-template-columns: 1fr
+		gap: 24px
+	.s-tariff .tariff_wrap .tariff_list
+		grid-template-columns: 1fr
+		li
+			.top, .bottom
+				padding: 32px 24px
+				border-radius: 32px
+	.s-why .why_wrap
+		padding: 24px
+		gap: 32px
+		.text
+			max-width: none
+		.image
+			grid-template-columns: repeat(2, 1fr)
+			gap: 16px
+	.s-faq .faq_wrap
+		gap: 24px
+		.form
+			padding: 32px 24px
+		.faq_list
+			li.view-item
+				padding: 24px
+	.s-contacts .contacts_wrap
+		padding: 24px
+		gap: 32px
+	footer
+		padding: 32px 0
+		.f_top .f_top_wrap
+			flex-direction: column
+			gap: 32px
+			.col.menu
+				width: 100%
+			.f_menu
+				gap: 16px
+
+	footer .f_top .f_top_wrap 
+		gap: 48px
+		.f_info li p
+			margin-bottom: 0
+		.col.menu
+			justify-content: flex-start
+			gap: 90px
+
+@media (max-width: 375px)
+	header .h_top .h_top_wrap .btn
+		min-width: 77px
+		padding: 0 10px
+		height: 38px
+		border-radius: 12px
+
+@media (max-width: 350px)
+	footer .f_top .f_top_wrap .col.menu
+		flex-direction: column
+		gap: 16px

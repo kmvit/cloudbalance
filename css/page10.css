@@ -1,0 +1,212 @@
+/* ===== s-info: left-align inner text + equal columns ===== */
+.s-info .info_wrap,
+.s-info .info_wrap {
+	display: grid !important;
+	grid-template-columns: 1fr 1.2fr !important;
+	gap: 24px !important;
+	align-items: center !important;
+	padding: 48px 48px 48px 80px !important;
+}
+
+.s-info .info_wrap .image {
+	width: 100% !important;
+	max-width: none !important;
+	margin: 0 !important;
+	display: block !important;
+}
+
+.s-info .info_wrap .image img {
+	width: 100% !important;
+	height: auto !important;
+	max-width: 100% !important;
+	display: block;
+}
+
+.s-info .info_wrap .text {
+	width: 100% !important;
+}
+
+.s-info .info_wrap .text .block_title,
+.s-info .info_wrap .text .page-desc,
+.s-info .info_wrap .text p {
+	text-align: left;
+}
+
+.s-info .info_wrap .text .block_title {
+	margin-bottom: 16px;
+}
+
+.s-info .info_wrap .text .buttons {
+	display: flex;
+	gap: 24px;
+	margin-top: 32px;
+}
+
+/* ===== Wider bars + taller chart in spending section ===== */
+.s-spending .osv-chart__bar {
+	max-width: 185px;
+}
+
+.s-spending .osv-chart__bars {
+	gap: 40px;
+	height: 400px;
+}
+
+.s-spending .osv-chart__canvas {
+	height: 400px;
+}
+
+.s-spending .osv-chart__bar-item {
+	height: 400px;
+}
+
+.s-spending .osv-chart__plot {
+	min-height: 400px;
+}
+
+/* ===== Section "Куда уходят деньги" ===== */
+.s-spending .block_title,
+.s-spending .page-desc,
+.s-spending .desr {
+	text-align: center;
+}
+
+.s-spending .page-desc {
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.s-spending .spending_actions {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+	margin-bottom: 40px;
+}
+
+.s-spending .spending_card {
+	padding: 40px;
+	background: #FFFFFF;
+	border-radius: 32px;
+}
+
+.s-spending .spending_card .param.type2 {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 12px;
+	margin-bottom: 32px;
+}
+
+/* ===== Section "Ваша финансовая панель" ===== */
+.s-panel > .container > .block_title {
+	font-size: 82px;
+	line-height: 1.05;
+}
+
+.s-panel .block_title,
+.s-panel .page-desc,
+.s-panel .desr {
+	text-align: center;
+}
+
+.s-panel .page-desc {
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.s-panel .panel_actions {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+	margin-bottom: 48px;
+}
+
+.s-panel .panel_card {
+	display: grid;
+	grid-template-columns: 1.1fr 1fr;
+	gap: 56px;
+	align-items: center;
+	padding: 48px;
+	background: transparent;
+	border: 1px solid rgba(10, 102, 194, 0.2);
+	border-radius: 40px;
+}
+
+.s-panel .panel_title {
+	display: block;
+	font-size: 48px;
+	line-height: 56px;
+	letter-spacing: -0.01em;
+	color: #2B3F51;
+	margin-bottom: 20px;
+}
+
+.s-panel .panel_text p {
+	font-size: 16px;
+	line-height: 24px;
+	color: #2B3F51;
+	opacity: 0.7;
+	margin: 0 0 32px;
+}
+
+.s-panel .panel_text .buttons {
+	display: flex;
+	gap: 12px;
+}
+
+.s-panel .panel_metrics {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 32px 24px;
+}
+
+.s-panel .metric p {
+	margin: 0 0 8px;
+	font-size: 72px;
+	line-height: 1.1;
+	font-weight: 700;
+	color: #0A66C2;
+}
+
+.s-panel .metric small {
+	font-size: 16px;
+	line-height: 22px;
+	color: #2B3F51;
+	opacity: 0.7;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+	.s-spending .spending_card .param.type2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.s-panel .panel_card {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+	.s-panel .panel_title {
+		font-size: 28px;
+		line-height: 34px;
+	}
+}
+
+@media (max-width: 576px) {
+	.s-spending .spending_card {
+		padding: 24px;
+		border-radius: 24px;
+	}
+	.s-spending .spending_card .param.type2 {
+		grid-template-columns: 1fr;
+	}
+	.s-panel .panel_card {
+		padding: 28px;
+		border-radius: 24px;
+	}
+	.s-panel .panel_metrics {
+		grid-template-columns: 1fr;
+	}
+	.s-panel .metric p {
+		font-size: 32px;
+	}
+}

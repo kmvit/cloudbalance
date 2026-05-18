@@ -1,0 +1,187 @@
+/* ===== Step 2 — two images side by side ===== */
+.s-work .work_wrap ul li .img.two {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	margin-top: 32px;
+}
+
+.s-work .work_wrap ul li .img.two img {
+	display: block;
+	height: 184px;
+	width: auto;
+	max-width: 100%;
+	object-fit: contain;
+	border-radius: 0;
+	flex-shrink: 0;
+}
+
+/* ===== s-split: big dark card + 2 small white cards ===== */
+.s-split .split_wrap {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 24px;
+	align-items: stretch;
+}
+
+.s-split .split_main {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 64px 48px;
+	background: #2B3F51 url(../images/split-bg.jpg) center/cover no-repeat;
+	border-radius: 40px;
+	color: #FFFFFF;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+}
+
+.s-split .split_main::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(0deg, rgba(43, 63, 81, 0.85), rgba(43, 63, 81, 0.85));
+	z-index: 1;
+}
+
+.s-split .split_main > * {
+	position: relative;
+	z-index: 2;
+}
+
+.s-split .split_main .desr {
+	margin-bottom: 20px;
+}
+
+.s-split .split_main .desr small {
+	background: #FFFFFF;
+	color: #0A66C2;
+}
+
+.s-split .split_main .block_title {
+	color: #FFFFFF;
+	font-size: 48px;
+	line-height: 1.15;
+	max-width: 440px;
+	margin-bottom: 16px;
+}
+
+.s-split .split_main p {
+	font-size: 15px;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.7);
+	max-width: 420px;
+	margin-bottom: 32px;
+	text-align: center;
+}
+
+.s-split .split_main .buttons {
+	display: flex;
+	gap: 12px;
+	justify-content: center;
+}
+
+.s-split .split_main .btn.wh {
+	background: transparent;
+	color: #FFFFFF;
+	border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+
+.s-split .split_main .btn.wh:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.s-split .split_main .btn.blue {
+	background: #FFFFFF;
+	color: #0A66C2;
+}
+
+.s-split .split_main .btn.blue:hover {
+	background: rgba(255, 255, 255, 0.9);
+}
+
+.s-split .split_main .btn.blue svg path {
+	fill: #0A66C2;
+}
+
+/* Side cards */
+.s-split .split_side {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.s-split .split_card {
+	display: flex;
+	flex-direction: column;
+	padding: 32px;
+	background: #FFFFFF;
+	border-radius: 32px;
+	flex: 1;
+}
+
+.s-split .split_icon {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 24px;
+}
+
+.s-split .split_icon img {
+	width: 72px;
+	height: 72px;
+	object-fit: contain;
+}
+
+.s-split .split_card_title {
+	font-size: 30px;
+	line-height: 36px;
+	letter-spacing: -0.01em;
+	color: #2B3F51;
+	margin-bottom: 12px;
+}
+
+.s-split .split_card p {
+	margin: 0 0 32px;
+	font-size: 16px;
+	line-height: 24px;
+	color: #2B3F51;
+}
+
+.s-split .split_card .btn {
+	align-self: flex-start;
+	margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+	.s-split .split_wrap {
+		grid-template-columns: 1fr;
+	}
+	.s-split .split_main {
+		min-height: auto;
+		padding: 48px 32px;
+	}
+	.s-split .split_main .block_title {
+		font-size: 36px;
+	}
+}
+
+@media (max-width: 576px) {
+	.s-split .split_main {
+		padding: 40px 24px;
+		border-radius: 28px;
+	}
+	.s-split .split_main .block_title {
+		font-size: 28px;
+	}
+	.s-split .split_card {
+		padding: 24px;
+		border-radius: 24px;
+	}
+}

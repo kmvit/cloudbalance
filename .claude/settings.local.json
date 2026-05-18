@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(ls /Users/home/PycharmProjects/financeapp/*.html)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -s -u dev:dev \"https://cl.vwserv2.ru/dl/page5.html\" -o page5_remote.html)",
+      "Bash(curl -s -u dev:dev \"https://cl.vwserv2.ru/dl/\")",
+      "Bash(curl -s -u dev:dev -o /dev/null -w '%{http_code} %{size_download}\\\\n' https://cl.vwserv2.ru/dl/__TRACKED_VAR__)",
+      "Bash(curl -s -u dev:dev \"https://cl.vwserv2.ru/dl/css/style.css\" -o remote_style.css)",
+      "Bash(curl -s -u dev:dev \"https://cl.vwserv2.ru/dl/css/main.css\" -o remote_main.css)",
+      "Bash(curl -s -u dev:dev \"https://cl.vwserv2.ru/dl/css/media.css\" -o remote_media.css)",
+      "Bash(curl -s -u dev:dev \"https://cl.vwserv2.ru/dl/js/common.js\" -o remote_common.js)",
+      "Bash(cp /tmp/remote_style.css /Users/home/PycharmProjects/financeapp/css/style.css)",
+      "Bash(cp /tmp/page5_remote.html /Users/home/PycharmProjects/financeapp/page5.html)",
+      "Bash(cp /tmp/remote_common.js /Users/home/PycharmProjects/financeapp/js/common.js)",
+      "Bash(curl -s -u dev:dev \"https://cl.vwserv2.ru/dl/images/\" -o /tmp/imglist.html)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -u dev:dev \"https://cl.vwserv2.ru/dl/images/01.png\" -o /Users/home/PycharmProjects/financeapp/images/01.png)",
+      "Bash(curl -s -u dev:dev \"https://cl.vwserv2.ru/dl/images/133691.png\" -o /Users/home/PycharmProjects/financeapp/images/133691.png)",
+      "Bash(curl -s -u dev:dev -o /dev/null -w '%{http_code} images/__TRACKED_VAR__\\\\n' https://cl.vwserv2.ru/dl/images/__TRACKED_VAR__)",
+      "Bash(curl -s -u dev:dev -o libs/__TRACKED_VAR__ -w '%{http_code}' https://cl.vwserv2.ru/dl/libs/__TRACKED_VAR__)",
+      "Bash(cp \"/Users/home/Downloads/Layout/Card.jpg\" /Users/home/PycharmProjects/financeapp/images/interface1.jpg)",
+      "Bash(cp \"/Users/home/Downloads/Layout/Card2.jpg\" /Users/home/PycharmProjects/financeapp/images/interface2.jpg)",
+      "Bash(cp \"/Users/home/Downloads/Layout/Card3.jpg\" /Users/home/PycharmProjects/financeapp/images/interface3.jpg)",
+      "Bash(ls -la /Users/home/PycharmProjects/financeapp/images/interface*.jpg)",
+      "Bash(cp \"/Users/home/Downloads/Layout 5/Card.jpg\" /Users/home/PycharmProjects/financeapp/images/module1.jpg)",
+      "Bash(cp \"/Users/home/Downloads/Layout 5/Card2.jpg\" /Users/home/PycharmProjects/financeapp/images/module2.jpg)",
+      "Bash(cp \"/Users/home/Downloads/Layout 5/Card3.jpg\" /Users/home/PycharmProjects/financeapp/images/module3.jpg)",
+      "Bash(ls -la /Users/home/PycharmProjects/financeapp/images/module*.jpg)",
+      "Bash(grep -l \"Единая система\\\\|Интеграция с банками\\\\|Автоматизация расчетов\" /Users/home/PycharmProjects/financeapp/*.html)",
+      "Bash(grep -B2 -A5 \"ПРЕИМУЩЕСТВА\\\\|преимущества\" /Users/home/PycharmProjects/financeapp/page*.html)",
+      "Bash(cp \"/Users/home/Downloads/Layout 2/Frame.png\" /Users/home/PycharmProjects/financeapp/images/icon-bank.png)",
+      "Bash(cp \"/Users/home/Downloads/Layout 2/Frame 2.png\" /Users/home/PycharmProjects/financeapp/images/icon-auto.png)",
+      "Bash(ls -la /Users/home/PycharmProjects/financeapp/images/icon-*.png)",
+      "Bash(ls -la /Users/home/PycharmProjects/financeapp/images/step2-*.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/home/PycharmProjects/financeapp/images/step2-img1.png /Users/home/PycharmProjects/financeapp/images/step2-img2.png)",
+      "Bash(grep -B1 -A5 \"adv-lite\" /Users/home/PycharmProjects/financeapp/page*.html)",
+      "Bash(grep -l \"param.type2 .rows:has\\\\|labeled filters\\\\|Скачать\\\\|download_btn\\\\|download_wrap\" /Users/home/PycharmProjects/financeapp/css/*.css)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/home/PycharmProjects/financeapp/images/metrics-panel.png)"
+    ]
+  }
+}

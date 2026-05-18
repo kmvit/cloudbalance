@@ -1,0 +1,188 @@
+
+.s-faq .faq_wrap
+	display: flex
+	align-items: flex-start
+	gap: 32px
+	.form
+		width: 100%
+		max-width: 510px
+		padding: 48px
+		max-height: 756px
+		background: #2B3F51
+		border-radius: 50px
+		span
+			display: block
+			font-size: 36px
+			line-height: 43px
+			text-align: center
+			letter-spacing: -0.01em
+			color: #FFFFFF
+			text-align: center
+		p
+			margin: 12px 0 40px
+			font-size: 16px
+			line-height: 24px
+			text-align: center
+			color: #FFFFFF
+		.form_row
+			margin-bottom: 16px
+			line-height: 1
+		input, textarea
+			width: 100%
+			padding: 0 32px
+			height: 88px
+			background: #FFFFFF
+			border: none
+			border-radius: 32px
+			font-size: 16px
+			color: #2B3F51
+			&::placeholder
+				font-size: 16px
+				color: #2B3F51
+				opacity: 1
+		textarea
+			padding-top: 32px
+			height: 147px
+			resize: none
+		button
+			width: 100%
+		label
+			display: block
+			margin: 40px auto 0
+			font-size: 14px
+			line-height: 21px
+			text-align: center
+			color: #FFFFFF
+			opacity: 0.3
+			a
+				color: #FFFFFF
+				font-weight: bold
+				text-decoration: underline
+	.faq_list
+		width: calc( 100% - 542px )
+		margin: 0
+		padding: 0
+		list-style-type: none
+		li.view-item
+			padding: 40px
+			padding-left: 48px
+			margin-bottom: 8px
+			background: #ffff
+			border-radius: 50px
+			&.active button::after
+				background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjQxMDU4IDQuNDEwNThDNC43MzYwMiA0LjA4NTE0IDUuMjYzNjYgNC4wODUxNCA1LjU4OTA5IDQuNDEwNThMMTUuNTg5MSAxNC40MTA2QzE1LjkxNDUgMTQuNzM2IDE1LjkxNDUgMTUuMjYzNyAxNS41ODkxIDE1LjU4OTFDMTUuMjYzNyAxNS45MTQ1IDE0LjczNiAxNS45MTQ1IDE0LjQxMDYgMTUuNTg5MUw0LjQxMDU4IDUuNTg5MDlDNC4wODUxNCA1LjI2MzY2IDQuMDg1MTQgNC43MzYwMiA0LjQxMDU4IDQuNDEwNThaIiBmaWxsPSIjMEE2NkMyIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTUuNTg5MiA0LjQxMDU4QzE1LjI2MzcgNC4wODUxNCAxNC43MzYxIDQuMDg1MTQgMTQuNDEwNyA0LjQxMDU4TDQuNDEwNjYgMTQuNDEwNkM0LjA4NTIyIDE0LjczNiA0LjA4NTIyIDE1LjI2MzcgNC40MTA2NiAxNS41ODkxQzQuNzM2MSAxNS45MTQ1IDUuMjYzNzQgMTUuOTE0NSA1LjU4OTE3IDE1LjU4OTFMMTUuNTg5MiA1LjU4OTA5QzE1LjkxNDYgNS4yNjM2NiAxNS45MTQ2IDQuNzM2MDIgMTUuNTg5MiA0LjQxMDU4WiIgZmlsbD0iIzBBNjZDMiIvPgo8L3N2Zz4K) !important
+				background-position: center
+			.view-item_header
+				display: flex
+				align-items: center
+				justify-content: space-between
+				cursor: pointer
+				span
+					display: block
+					width: calc( 100% - 70px )
+					font-size: 30px
+					line-height: 36px
+					letter-spacing: -0.01em
+					color: #2B3F51
+				button
+					position: relative
+					display: flex
+					align-items: center
+					justify-content: center
+					padding: 0
+					width: 52px
+					height: 52px
+					background-color: rgba(10, 102, 194, 0.1)
+					border-radius: 16px
+					border: none
+					border: none
+					&::after
+						content: ''
+						display: block
+						width: 20px
+						height: 20px
+						background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjA5NTQyIDEwLjAwMDVDMi4wOTU0MiA5LjU0MDI1IDIuNDY4NTIgOS4xNjcxNSAyLjkyODc2IDkuMTY3MTVMMTcuMDcwOSA5LjE2NzE1QzE3LjUzMTEgOS4xNjcxNSAxNy45MDQyIDkuNTQwMjUgMTcuOTA0MiAxMC4wMDA1QzE3LjkwNDIgMTAuNDYwNyAxNy41MzExIDEwLjgzMzggMTcuMDcwOSAxMC44MzM4TDIuOTI4NzYgMTAuODMzOEMyLjQ2ODUyIDEwLjgzMzggMi4wOTU0MiAxMC40NjA3IDIuMDk1NDIgMTAuMDAwNVoiIGZpbGw9IiMwQTY2QzIiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05Ljk5OTc2IDIuMDk2MTVDOS41Mzk1MiAyLjA5NjE1IDkuMTY2NDIgMi40NjkyNSA5LjE2NjQyIDIuOTI5NDlMOS4xNjY0MiAxNy4wNzE2QzkuMTY2NDIgMTcuNTMxOSA5LjUzOTUyIDE3LjkwNSA5Ljk5OTc2IDE3LjkwNUMxMC40NiAxNy45MDUgMTAuODMzMSAxNy41MzE5IDEwLjgzMzEgMTcuMDcxNkwxMC44MzMxIDIuOTI5NDlDMTAuODMzMSAyLjQ2OTI1IDEwLjQ2IDIuMDk2MTUgOS45OTk3NiAyLjA5NjE1WiIgZmlsbD0iIzBBNjZDMiIvPgo8L3N2Zz4K)
+						background-position: center
+			.view-item_content
+				display: none
+				padding-top: 8px
+				p
+					max-width: 618px
+					margin-bottom: 15px
+					font-size: 16px
+					color: #2B3F51
+					line-height: 24px
+					&:last-child
+						margin-bottom: 8px
+					
+@media(max-width: 1300px)			
+	.s-faq .faq_wrap .faq_list li.view-item 
+		padding: 30px
+		border-radius: 25px
+		.view-item_header span
+			font-size: 22px
+			line-height: 1
+
+	.s-faq .faq_wrap .form 
+		border-radius: 25px
+		input
+			height: 60px
+			border-radius: 24px
+		textarea
+			height: 120px
+			border-radius: 24px
+		label
+			margin-top: 25px
+
+@media(max-width: 1199px)
+	.s-faq .faq_wrap 
+		.form
+			max-width: 467px
+		.faq_list
+			width: calc(100% - 500px)
+
+@media(max-width: 768px)
+	.s-faq .faq_wrap .form span
+
+	.s-faq .faq_wrap .form 
+		border-radius: 25px
+		span
+			display: block
+			margin-bottom: 12px
+			font-size: 30px
+			line-height: 36px
+		input
+			padding: 0 20px
+			height: 50px
+			font-size: 14px
+			border-radius: 16px
+			&::placeholder
+				font-size: 14px
+		textarea
+			padding: 20px
+			height: 90px
+			font-size: 14px
+			border-radius: 16px
+			&::placeholder
+				font-size: 14px
+
+@media(max-width: 520px)
+	.s-faq .faq_wrap .faq_list li.view-item 
+		padding: 18px
+		.view-item_header 
+			span
+				font-size: 16px
+			button
+				width: 32px
+				height: 32px
+				border-radius: 9px
+		.view-item_content p
+			font-size: 14px
+			line-height: 1.2
+			opacity: .7
+	
+	.s-faq .faq_wrap .form label
+		font-size: 12px
+		line-height: 1.2
+		br
+			display: none

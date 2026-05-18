@@ -1,0 +1,121 @@
+
+
+.s-contacts
+	.contacts_wrap
+		display: flex
+		gap: 64px
+		padding: 86px
+		border: 1px solid rgba(10, 102, 194, 0.2)
+		border-radius: 50px
+		.map
+			width: 100%
+			max-width: 656px
+			border: 4px solid #FFFFFF
+			border-radius: 24px
+			overflow: hidden
+		img
+			width: 100%
+		.page-desc
+			margin-bottom: 64px
+		
+		ul
+			margin: 0
+			padding: 0
+			list-style-type: none
+			li
+				display: flex
+				gap: 32px
+				margin-bottom: 64px
+				&:last-child
+					margin-bottom: 0
+				.icon
+					width: 72px
+					height: 72px
+					display: flex
+					justify-content: center
+					align-items: center
+					border: 1px solid rgba(10, 102, 194, 0.2)
+					border-radius: 24px
+				.text
+					width: calc(100% - 104px)
+					display: flex
+					align-items: flex-start
+					flex-direction: column
+					gap: 8px
+				p, a:not(.btn)
+					display: block
+					margin: 0
+					font-size: 16px
+					line-height: 24px
+					color: #2B3F51
+				a:not(.btn)
+					text-decoration: underline
+				.btn
+					display: inline-flex
+
+@media(max-width: 1400px)
+	.s-contacts 
+		.block_title, .page-desc
+			text-align: left
+		.contacts_wrap 
+			align-items: flex-start
+			.info
+				width: calc( 100% - 614px )
+			.map
+				max-width: 550px
+
+	.s-contacts .contacts_wrap ul li .btn
+		margin-top: 32px
+
+@media(max-width: 1250px)
+	.s-contacts .contacts_wrap 
+		.info
+			width: calc( 100% - 530px )
+		.map
+			max-width: 480px
+
+	.s-contacts .contacts_wrap ul li .text
+		font-size: 22px
+
+@media(max-width: 1199px)
+	.s-contacts .contacts_wrap
+		padding: 50px
+		.info
+			width: calc( 100% - 544px )
+		.map
+			max-width: 480px
+
+@media(max-width: 1074px)
+	.s-contacts .contacts_wrap
+		flex-direction: column
+		.info
+			width: 100%
+		.map
+			max-width: unset
+		
+
+@media(max-width: 768px)
+	.s-contacts .contacts_wrap .page-desc
+		margin-bottom: 32px
+
+	.s-contacts .contacts_wrap
+		border-radius: 15px
+		ul li
+			margin-bottom: 24px
+
+@media(max-width: 520px)
+	.s-contacts .contacts_wrap
+		border-radius: 15px
+		ul li
+			flex-direction: column
+			gap: 20px
+			margin-bottom: 24px
+			.text
+				font-size: 26px
+				line-height: 1.2
+			p, a
+				font-size: 14px
+				line-height: 1.2
+
+	.s-contacts .contacts_wrap ul li .btn
+		margin-top: 0

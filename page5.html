@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>Cloud Balance</title>
+	<meta name="description" content="Simple Starter Description">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="icon" href="images/favicon.png">
+	<meta property="og:image" content="images/preview.jpg">
+
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="libs/fancybox/css/fancybox.css">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/media.css">
+	<link rel="stylesheet" href="css/ui-extensions.css">
+	<link rel="stylesheet" href="css/page5.css">
+
+	<script src="libs/jquery/jquery-3.6.0.min.js" defer></script>
+	<script src="libs/fancybox/js/fancybox.umd.js" defer></script>
+
+	<script src="js/common.js" defer></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+	<header>
+		<div class="h_top">
+			<div class="container">
+				<div class="h_top_wrap">
+					<a href="#" class="logo">
+						<div class="img">
+							<img src="images/logo.svg" alt="">
+						</div>
+						<p>Cloud Balance</p>
+					</a>
+					<ul class="h_menu">
+						<li><a href="#">Бухучет</a></li>
+						<li><a href="#">Налоги</a></li>
+						<li><a href="#">Кадры</a></li>
+						<li><a href="#" class="parent">Ресурсы<div class="arrow"><svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></a></li>
+						<li><a href="#" class="parent">Продукт <div class="arrow"><svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></a></li>
+					</ul>
+					<a href="#" class="btn">Вход</a>
+					<a href="#" class="hamburger"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.1748 0.5C12.3391 0.5 12.4411 0.548503 12.5215 0.628906C12.6017 0.709215 12.6503 0.810702 12.6504 0.974609C12.6504 1.13881 12.6018 1.2409 12.5215 1.32129L7.26758 6.5752L7.62109 6.92871L12.5215 11.8281C12.6019 11.9085 12.6504 12.0106 12.6504 12.1748C12.6504 12.3391 12.6019 12.4411 12.5215 12.5215C12.4411 12.6019 12.3391 12.6504 12.1748 12.6504C12.0106 12.6504 11.9085 12.6019 11.8281 12.5215L6.92871 7.62109L6.5752 7.26758L1.32129 12.5215C1.2409 12.6018 1.13881 12.6504 0.974609 12.6504C0.810702 12.6503 0.709215 12.6017 0.628906 12.5215C0.548503 12.4411 0.5 12.3391 0.5 12.1748C0.500038 12.0106 0.548535 11.9085 0.628906 11.8281L5.88184 6.5752L5.52832 6.22168L0.628906 1.32129C0.548504 1.24089 0.5 1.13888 0.5 0.974609C0.500076 0.810568 0.548567 0.709245 0.628906 0.628906C0.709245 0.548567 0.810568 0.500076 0.974609 0.5C1.13888 0.5 1.24089 0.548504 1.32129 0.628906L6.22168 5.52832L6.5752 5.88184L11.8281 0.628906C11.9085 0.548535 12.0106 0.500038 12.1748 0.5Z" fill="#05050A" stroke="#05050A"/></svg></a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<div class="page type2">
+			<div class="container">
+				<div class="page_wrap">
+					<div class="col">
+						<div class="desr"><small>Возможности</small></div>
+						<span class="block_title">Полный контроль над бухгалтерией и отчетностью</span>
+						<p class="page-desc">Все инструменты для ведения учета собраны в одном месте. От простых операций до сложной отчетности, система справляется быстро и надежно.</p>
+						<div class="buttons">
+							<a href="" class="btn blue">Подробнее</a>
+							<a href="" class="btn">Узнать <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.58752 0.170854C6.81533 -0.0569515 7.18467 -0.0569515 7.41248 0.170854L11.4958 4.25419C11.7236 4.48199 11.7236 4.85134 11.4958 5.07914L7.41248 9.16248C7.18467 9.39028 6.81533 9.39028 6.58752 9.16248C6.35971 8.93467 6.35971 8.56532 6.58752 8.33752L9.67504 5.25H0.583333C0.261167 5.25 0 4.98883 0 4.66667C0 4.3445 0.261167 4.08333 0.583333 4.08333H9.67504L6.58752 0.995812C6.35971 0.768006 6.35971 0.39866 6.58752 0.170854Z" fill="#0A66C2"></path></svg></a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="info-list">
+
+							<aside>
+								<span class="block_title type2">Оборотно-сальдовая ведомость</span>
+								<p class="page-desc">Просматривайте остатки по счетам на любую дату. Фильтруйте по периоду, счетам и контрагентам для быстрого анализа.</p>
+								<div class="param type2 osv_filters">
+									<div class="rows"><div class="ps_select"><span>Номер</span><svg class="ps_arr" width="10" height="6" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></div>
+									<div class="rows"><div class="ps_select"><span>Выберите год</span><svg class="ps_arr" width="10" height="6" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></div>
+									<div class="rows"><div class="ps_select"><span>Выберите<br>период</span><svg class="ps_arr" width="10" height="6" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></div>
+								</div>
+								<div class="osv-chart df" aria-label="График суммы расходов">
+									<p class="osv-chart__caption">Сумма расходов <br>(рублей)</p>
+									<div class="osv-chart__plot">
+										<div class="osv-chart__y" aria-hidden="true">
+											<span>2000</span><span>1500</span><span>1000</span><span>500</span><span>0</span>
+										</div>
+										<div class="osv-chart__canvas">
+											<div class="osv-chart__grid" aria-hidden="true">
+												<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+											</div>
+											<ul class="osv-chart__bars">
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 92%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item osv-chart__bar-item--active"><div class="osv-chart__bar-col" style="--bar-h: 63.5%"><div class="osv-chart__tooltip">1230</div><span class="osv-chart__pin" aria-hidden="true"></span><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 53%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 35%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 19%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="osv-export">
+									<a href="#" class="osv-export__btn"><span>PDF</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+									<a href="#" class="osv-export__btn"><span>EXCEL</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+									<a href="#" class="osv-export__btn"><span>1C</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+								</div>
+							</aside>
+
+							<aside>
+								<span class="block_title type2">Журнал проводок</span>
+								<p class="page-desc">Добавляйте, редактируйте и ищите операции. Вся история изменений сохраняется автоматически для полной прозрачности.</p>
+								<div class="param type2">
+									<div class="rows"><label>Номер</label><select><option>Выберите номер</option></select></div>
+									<div class="rows"><label>Период до:</label><input type="text" placeholder="ДД.ММ.ГГ"></div>
+									<div class="rows"><label>Период до:</label><input type="text" placeholder="ДД.ММ.ГГ"></div>
+								</div>
+								<div class="osv-chart df" aria-label="График суммы расходов">
+									<p class="osv-chart__caption">Сумма расходов <br>(рублей)</p>
+									<div class="osv-chart__plot">
+										<div class="osv-chart__y" aria-hidden="true">
+											<span>2000</span><span>1500</span><span>1000</span><span>500</span><span>0</span>
+										</div>
+										<div class="osv-chart__canvas">
+											<div class="osv-chart__grid" aria-hidden="true">
+												<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+											</div>
+											<ul class="osv-chart__bars">
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 92%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item osv-chart__bar-item--active"><div class="osv-chart__bar-col" style="--bar-h: 63.5%"><div class="osv-chart__tooltip">1230</div><span class="osv-chart__pin" aria-hidden="true"></span><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 53%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 35%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 19%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="osv-export">
+									<a href="#" class="osv-export__btn"><span>PDF</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+									<a href="#" class="osv-export__btn"><span>EXCEL</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+									<a href="#" class="osv-export__btn"><span>1C</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+								</div>
+							</aside>
+
+							<aside>
+								<span class="block_title type2">Формирование отчетов</span>
+								<p class="page-desc">Генерируйте баланс, налоговые декларации и другие документы. Экспортируйте в PDF или Excel одним кликом.</p>
+								<div class="param type2">
+									<div class="rows">
+										<select name="report-year" id="report-year"><option value="">Выберите год</option></select>
+									</div>
+									<div class="rows">
+										<select name="report-period" id="report-period"><option value="">Выберите период</option></select>
+									</div>
+								</div>
+								<ul class="report-rows download-style">
+									<li class="report-row">
+										<span class="report-row__title">Баланс</span>
+										<div class="download_wrap">
+											<button class="download_btn">
+												<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+												<span>Скачать</span>
+												<svg class="arr" width="10" height="6" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="currentColor"/></svg>
+											</button>
+										</div>
+									</li>
+									<li class="report-row open">
+										<span class="report-row__title">Отчет о прибылях и убытках</span>
+										<div class="download_wrap">
+											<button class="download_btn">
+												<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+												<span>Скачать</span>
+												<svg class="arr" width="10" height="6" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="currentColor"/></svg>
+											</button>
+											<div class="download_menu">
+												<a href="#"><span>PDF</span><b>1.26 Мб</b></a>
+												<a href="#"><span>EXCEL</span><b>1 Мб</b></a>
+												<a href="#"><span>1C</span><b>747 Кб</b></a>
+											</div>
+										</div>
+									</li>
+									<li class="report-row">
+										<span class="report-row__title">Декларация по УСН</span>
+										<div class="report-row__actions">
+											<a href="#" class="osv-export__btn"><span>PDF</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+											<a href="#" class="osv-export__btn"><span>EXCEL</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+											<a href="#" class="osv-export__btn"><span>1C</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+										</div>
+									</li>
+									<li class="report-row">
+										<span class="report-row__title">Декларация по налогу на Прибыль</span>
+										<div class="report-row__actions">
+											<a href="#" class="osv-export__btn"><span>PDF</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+											<a href="#" class="osv-export__btn"><span>EXCEL</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+											<a href="#" class="osv-export__btn"><span>1C</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+										</div>
+									</li>
+									<li class="report-row">
+										<span class="report-row__title">Декларация по НДС</span>
+										<div class="report-row__actions">
+											<a href="#" class="osv-export__btn"><span>PDF</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+											<a href="#" class="osv-export__btn"><span>EXCEL</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+											<a href="#" class="osv-export__btn"><span>1C</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+										</div>
+									</li>
+									<li class="report-row">
+										<span class="report-row__title">Декларация по НДФЛ</span>
+										<div class="report-row__actions">
+											<a href="#" class="osv-export__btn"><span>PDF</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+											<a href="#" class="osv-export__btn"><span>EXCEL</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+											<a href="#" class="osv-export__btn"><span>1C</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+										</div>
+									</li>
+									<li class="report-row">
+										<span class="report-row__title">Отчет по страховым взносам</span>
+										<div class="report-row__actions">
+											<a href="#" class="osv-export__btn"><span>PDF</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+											<a href="#" class="osv-export__btn"><span>EXCEL</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+											<a href="#" class="osv-export__btn"><span>1C</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+										</div>
+									</li>
+								</ul>
+							</aside>
+
+							<aside>
+								<span class="block_title type2">История отправок</span>
+								<p class="page-desc">Отслеживайте статусы отправленных отчетов: «Принят», «Ожидает», «Отклонён». Всё в едином реестре с поиском.</p>
+								<div class="history-table-wrap">
+									<table class="history-table">
+										<thead>
+											<tr>
+												<th>Наименование отчета</th>
+												<th>Период</th>
+												<th>Год</th>
+												<th>Дата отправки</th>
+												<th>Дата принятия</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr><td>Отчет по страховым взносам</td><td>3 квартал</td><td>2025</td><td>25 октября</td><td>1 ноября</td></tr>
+											<tr><td>Отчет по страховым взносам</td><td>3 квартал</td><td>2025</td><td>25 октября</td><td>1 ноября</td></tr>
+											<tr><td>Отчет по страховым взносам</td><td>3 квартал</td><td>2025</td><td>25 октября</td><td>1 ноября</td></tr>
+											<tr><td>Отчет по страховым взносам</td><td>3 квартал</td><td>2025</td><td>25 октября</td><td>1 ноября</td></tr>
+											<tr><td>Отчет по страховым взносам</td><td>3 квартал</td><td>2025</td><td>25 октября</td><td>1 ноября</td></tr>
+											<tr><td>Отчет по страховым взносам</td><td>3 квартал</td><td>2025</td><td>25 октября</td><td>1 ноября</td></tr>
+										</tbody>
+									</table>
+								</div>
+							</aside>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- SECTION 2: Все бухгалтерские операции -->
+		<div class="page type2">
+			<div class="container">
+				<div class="page_wrap">
+					<div class="col">
+						<div class="desr"><small>Операции</small></div>
+						<span class="block_title">Все бухгалтерские операции в одном месте</span>
+						<p class="page-desc">Добавляйте, редактируйте и ищите операции. История изменений автоматически.</p>
+						<div class="buttons">
+							<a href="" class="btn blue">Подробнее</a>
+							<a href="" class="btn">Узнать <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.58752 0.170854C6.81533 -0.0569515 7.18467 -0.0569515 7.41248 0.170854L11.4958 4.25419C11.7236 4.48199 11.7236 4.85134 11.4958 5.07914L7.41248 9.16248C7.18467 9.39028 6.81533 9.39028 6.58752 9.16248C6.35971 8.93467 6.35971 8.56532 6.58752 8.33752L9.67504 5.25H0.583333C0.261167 5.25 0 4.98883 0 4.66667C0 4.3445 0.261167 4.08333 0.583333 4.08333H9.67504L6.58752 0.995812C6.35971 0.768006 6.35971 0.39866 6.58752 0.170854Z" fill="#0A66C2"/></svg></a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="info-list">
+							<aside>
+								<span class="block_title type2">Журнал проводок</span>
+								<p class="page-desc">Добавляйте, редактируйте и ищите операции. Вся история изменений сохраняется автоматически для полной прозрачности.</p>
+								<div class="param type2">
+									<div class="rows"><label>Номер</label><select><option>Выберите номер</option></select></div>
+									<div class="rows"><label>Период до:</label><input type="text" placeholder="ДД.ММ.ГГ"></div>
+									<div class="rows"><label>Период до:</label><input type="text" placeholder="ДД.ММ.ГГ"></div>
+								</div>
+								<div class="osv-chart df" aria-label="График суммы расходов">
+									<p class="osv-chart__caption">Сумма расходов <br>(рублей)</p>
+									<div class="osv-chart__plot">
+										<div class="osv-chart__y" aria-hidden="true">
+											<span>2000</span><span>1500</span><span>1000</span><span>500</span><span>0</span>
+										</div>
+										<div class="osv-chart__canvas">
+											<div class="osv-chart__grid" aria-hidden="true">
+												<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+											</div>
+											<ul class="osv-chart__bars">
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 92%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item osv-chart__bar-item--active"><div class="osv-chart__bar-col" style="--bar-h: 63.5%"><div class="osv-chart__tooltip">1230</div><span class="osv-chart__pin" aria-hidden="true"></span><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 53%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 35%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 19%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="osv-export">
+									<a href="#" class="osv-export__btn"><span>PDF</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+									<a href="#" class="osv-export__btn"><span>EXCEL</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+									<a href="#" class="osv-export__btn"><span>1C</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+								</div>
+							</aside>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- SECTION 3: Формирование отчетов за несколько кликов -->
+		<div class="page type2">
+			<div class="container">
+				<div class="page_wrap">
+					<div class="col">
+						<div class="desr"><small>Отчеты</small></div>
+						<span class="block_title">Формирование отчетов за несколько кликов</span>
+						<p class="page-desc">Выбирайте тип отчета, укажите период и формируйте файл. Все готово в Excel или PDF.</p>
+						<div class="buttons">
+							<a href="" class="btn blue">Подробнее</a>
+							<a href="" class="btn">Узнать <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.58752 0.170854C6.81533 -0.0569515 7.18467 -0.0569515 7.41248 0.170854L11.4958 4.25419C11.7236 4.48199 11.7236 4.85134 11.4958 5.07914L7.41248 9.16248C7.18467 9.39028 6.81533 9.39028 6.58752 9.16248C6.35971 8.93467 6.35971 8.56532 6.58752 8.33752L9.67504 5.25H0.583333C0.261167 5.25 0 4.98883 0 4.66667C0 4.3445 0.261167 4.08333 0.583333 4.08333H9.67504L6.58752 0.995812C6.35971 0.768006 6.35971 0.39866 6.58752 0.170854Z" fill="#0A66C2"/></svg></a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="info-list">
+							<aside>
+								<span class="block_title type2">Выбор типа</span>
+								<p class="page-desc">Выбирайте тип отчета, укажите ИНН или счет при необходимости и период.</p>
+								<div class="param type2">
+									<div class="rows"><select><option>Выберите год</option></select></div>
+									<div class="rows"><select><option>Выберите период</option></select></div>
+								</div>
+								<ul class="report-rows">
+									<li class="report-row">
+										<span class="report-row__title">Баланс</span>
+										<div class="download_wrap">
+											<button class="download_btn">
+												<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+												<span>Скачать</span>
+												<svg class="arr" width="10" height="6" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="currentColor"/></svg>
+											</button>
+											<div class="download_menu">
+												<a href="#"><span>PDF</span><b>1.26 Мб</b></a>
+												<a href="#"><span>EXCEL</span><b>1 Мб</b></a>
+												<a href="#"><span>1C</span><b>747 Кб</b></a>
+											</div>
+										</div>
+									</li>
+									<li class="report-row">
+										<span class="report-row__title">Отчет о прибылях и убытках</span>
+										<div class="download_wrap">
+											<button class="download_btn">
+												<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+												<span>Скачать</span>
+												<svg class="arr" width="10" height="6" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="currentColor"/></svg>
+											</button>
+											<div class="download_menu">
+												<a href="#"><span>PDF</span><b>1.26 Мб</b></a>
+												<a href="#"><span>EXCEL</span><b>1 Мб</b></a>
+												<a href="#"><span>1C</span><b>747 Кб</b></a>
+											</div>
+										</div>
+									</li>
+									<li class="report-row"><span class="report-row__title">Декларация по УСН</span><div class="report-row__actions"><a href="#" class="osv-export__btn"><span>PDF</span></a><a href="#" class="osv-export__btn"><span>EXCEL</span></a><a href="#" class="osv-export__btn"><span>1C</span></a></div></li>
+									<li class="report-row"><span class="report-row__title">Декларация по налогу на Прибыль</span><div class="report-row__actions"><a href="#" class="osv-export__btn"><span>PDF</span></a><a href="#" class="osv-export__btn"><span>EXCEL</span></a><a href="#" class="osv-export__btn"><span>1C</span></a></div></li>
+									<li class="report-row"><span class="report-row__title">Декларация по НДС</span><div class="report-row__actions"><a href="#" class="osv-export__btn"><span>PDF</span></a><a href="#" class="osv-export__btn"><span>EXCEL</span></a><a href="#" class="osv-export__btn"><span>1C</span></a></div></li>
+									<li class="report-row"><span class="report-row__title">Отчет по страховым взносам</span><div class="report-row__actions"><a href="#" class="osv-export__btn"><span>PDF</span></a><a href="#" class="osv-export__btn"><span>EXCEL</span></a><a href="#" class="osv-export__btn"><span>1C</span></a></div></li>
+								</ul>
+							</aside>
+
+							<aside>
+								<span class="block_title type2">Настройки периода</span>
+								<p class="page-desc">Задайте начальную и конечную дату. Отчет сформируется за выбранный период.</p>
+								<div class="param type2">
+									<div class="rows"><label>Начальная</label><input type="text" placeholder="25.10.25"></div>
+									<div class="rows"><label>Конечная</label><input type="text" placeholder="25.11.25"></div>
+								</div>
+								<div class="osv-chart df" aria-label="График суммы расходов">
+									<p class="osv-chart__caption">Сумма расходов <br>(рублей)</p>
+									<div class="osv-chart__plot">
+										<div class="osv-chart__y" aria-hidden="true">
+											<span>2000</span><span>1500</span><span>1000</span><span>500</span><span>0</span>
+										</div>
+										<div class="osv-chart__canvas">
+											<div class="osv-chart__grid" aria-hidden="true">
+												<div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+											</div>
+											<ul class="osv-chart__bars">
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 92%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item osv-chart__bar-item--active"><div class="osv-chart__bar-col" style="--bar-h: 63.5%"><div class="osv-chart__tooltip">1230</div><span class="osv-chart__pin" aria-hidden="true"></span><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 53%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 35%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+												<li class="osv-chart__bar-item"><div class="osv-chart__bar-col" style="--bar-h: 19%"><span class="osv-chart__bar"></span></div><span class="osv-chart__x-label">Ведомость</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="osv-export">
+									<a href="#" class="osv-export__btn"><span>PDF</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+									<a href="#" class="osv-export__btn"><span>EXCEL</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+									<a href="#" class="osv-export__btn"><span>1C</span><svg class="osv-export__clip" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21.44 11.05l-8.49 8.49a5 5 0 01-7.07-7.07l8.49-8.49a3.5 3.5 0 014.95 4.95l-8.49 8.49a2 2 0 01-2.83-2.83l7.78-7.77" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+								</div>
+							</aside>
+
+							<aside>
+								<span class="block_title type2">Предпросмотр данных</span>
+								<p class="page-desc">Просмотрите перед сдачей графиков и таблиц, убедитесь в корректности показателей.</p>
+								<div class="preview_placeholder"></div>
+							</aside>
+
+							<aside>
+								<span class="block_title type2">Экспорт в форматы</span>
+								<p class="page-desc">PDF для распечатки, Excel для дополнительной обработки.</p>
+								<div class="param type2">
+									<div class="rows"><select><option>Выберите год</option></select></div>
+									<div class="rows"><select><option>Выберите период</option></select></div>
+								</div>
+								<ul class="report-rows">
+									<li class="report-row">
+										<span class="report-row__title">Баланс</span>
+										<div class="download_wrap">
+											<button class="download_btn">
+												<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+												<span>Скачать</span>
+												<svg class="arr" width="10" height="6" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="currentColor"/></svg>
+											</button>
+											<div class="download_menu">
+												<a href="#"><span>PDF</span><b>1.26 Мб</b></a>
+												<a href="#"><span>EXCEL</span><b>1 Мб</b></a>
+												<a href="#"><span>1C</span><b>747 Кб</b></a>
+											</div>
+										</div>
+									</li>
+									<li class="report-row">
+										<span class="report-row__title">Отчет о прибылях и убытках</span>
+										<div class="download_wrap">
+											<button class="download_btn">
+												<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+												<span>Скачать</span>
+												<svg class="arr" width="10" height="6" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="currentColor"/></svg>
+											</button>
+											<div class="download_menu">
+												<a href="#"><span>PDF</span><b>1.26 Мб</b></a>
+												<a href="#"><span>EXCEL</span><b>1 Мб</b></a>
+												<a href="#"><span>1C</span><b>747 Кб</b></a>
+											</div>
+										</div>
+									</li>
+									<li class="report-row"><span class="report-row__title">Декларация по УСН</span><div class="report-row__actions"><a href="#" class="osv-export__btn"><span>PDF</span></a><a href="#" class="osv-export__btn"><span>EXCEL</span></a><a href="#" class="osv-export__btn"><span>1C</span></a></div></li>
+									<li class="report-row"><span class="report-row__title">Декларация по налогу на Прибыль</span><div class="report-row__actions"><a href="#" class="osv-export__btn"><span>PDF</span></a><a href="#" class="osv-export__btn"><span>EXCEL</span></a><a href="#" class="osv-export__btn"><span>1C</span></a></div></li>
+									<li class="report-row"><span class="report-row__title">Декларация по НДС</span><div class="report-row__actions"><a href="#" class="osv-export__btn"><span>PDF</span></a><a href="#" class="osv-export__btn"><span>EXCEL</span></a><a href="#" class="osv-export__btn"><span>1C</span></a></div></li>
+									<li class="report-row"><span class="report-row__title">Отчет по страховым взносам</span><div class="report-row__actions"><a href="#" class="osv-export__btn"><span>PDF</span></a><a href="#" class="osv-export__btn"><span>EXCEL</span></a><a href="#" class="osv-export__btn"><span>1C</span></a></div></li>
+								</ul>
+							</aside>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- METRICS: 847 / 92% / 156 -->
+		<section class="s-why type3 dop section">
+			<div class="container">
+				<div class="why_wrap">
+					<div class="text">
+						<span class="block_title">Показатели работы раздела бухучета</span>
+						<p class="page-desc">Видите, сколько отчетов создано, отправлено и сколько времени обработки в месяц.</p>
+						<ul>
+							<li>
+								<div class="num">
+									<span>847</span>
+								</div>
+								<div class="tx">
+									<p>Отчетов создано</p>
+								</div>
+							</li>
+							<li>
+								<div class="num">
+									<span>92%</span>
+								</div>
+								<div class="tx">
+									<p>Успешных отправок</p>
+									<p><small>Документы прошли проверку в <br>налоговой с первого раза</small></p>
+								</div>
+							</li>
+							<li>
+								<div class="num">
+									<span>156</span>
+								</div>
+								<div class="tx">
+									<p>Часов сэкономлено</p>
+									<p><small>Автоматизация вместо ручного заполнения</small></p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="image">
+						<img src="images/01.png" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="f_top">
+			<div class="container">
+				<div class="f_top_wrap">
+					<div class="col">
+						<div class="top">
+							<a href="#" class="logo">
+								<div class="img">
+									<img src="images/logo.svg" alt="">
+								</div>
+								<p>Cloud Balance</p>
+							</a>
+							<ul class="f_info">
+								<li><a href="#">support@allinsaas.ru</a></li>
+								<li><a href="#">+7 (495) 000-0000</a></li>
+								<li><p>Москва, Россия, центр города</p></li>
+							</ul>
+						</div>
+						<ul class="soc">
+							<li><a href="#"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 10.0611C20 4.50451 15.5229 0 10 0C4.47715 0 0 4.50451 0 10.0611C0 15.0828 3.65684 19.2452 8.4375 20V12.9694H5.89844V10.0611H8.4375V7.84452C8.4375 5.32296 9.9305 3.93012 12.2146 3.93012C13.3088 3.93012 14.4531 4.12663 14.4531 4.12663V6.60261H13.1922C11.95 6.60261 11.5625 7.37822 11.5625 8.1739V10.0611H14.3359L13.8926 12.9694H11.5625V20C16.3432 19.2452 20 15.083 20 10.0611Z" fill="#2B3F51"/>
+</svg>
+</a></li>
+							<li><a href="#"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13 0H5C2.23858 0 0 2.23858 0 5V13C0 15.7614 2.23858 18 5 18H13C15.7614 18 18 15.7614 18 13V5C18 2.23858 15.7614 0 13 0ZM16.25 13C16.2445 14.7926 14.7926 16.2445 13 16.25H5C3.20735 16.2445 1.75549 14.7926 1.75 13V5C1.75549 3.20735 3.20735 1.75549 5 1.75H13C14.7926 1.75549 16.2445 3.20735 16.25 5V13ZM13.75 5.25C14.3023 5.25 14.75 4.80228 14.75 4.25C14.75 3.69772 14.3023 3.25 13.75 3.25C13.1977 3.25 12.75 3.69772 12.75 4.25C12.75 4.80228 13.1977 5.25 13.75 5.25ZM9 4.5C6.51472 4.5 4.5 6.51472 4.5 9C4.5 11.4853 6.51472 13.5 9 13.5C11.4853 13.5 13.5 11.4853 13.5 9C13.5027 7.8057 13.0294 6.65957 12.1849 5.81508C11.3404 4.97059 10.1943 4.49734 9 4.5ZM6.25 9C6.25 10.5188 7.4812 11.75 9 11.75C10.5188 11.75 11.75 10.5188 11.75 9C11.75 7.4812 10.5188 6.25 9 6.25C7.4812 6.25 6.25 7.4812 6.25 9Z" fill="#2B3F51"/>
+</svg>
+</a></li>
+<li><a href=""><svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.1761 0H16.9362L10.9061 6.7774L18 16H12.4456L8.0951 10.4066L3.11723 16H0.35544L6.80517 8.7508L0 0H5.69545L9.6279 5.11262L14.1761 0ZM13.2073 14.3754H14.7368L4.86441 1.53928H3.2232L13.2073 14.3754Z" fill="#2B3F51"/>
+</svg></a>
+</li>
+<li><a href="#"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 0C0.67157 0 0 0.67157 0 1.5V16.5C0 17.3284 0.67157 18 1.5 18H16.5C17.3284 18 18 17.3284 18 16.5V1.5C18 0.67157 17.3284 0 16.5 0H1.5ZM5.52076 4.00272C5.52639 4.95897 4.81061 5.54819 3.96123 5.54397C3.16107 5.53975 2.46357 4.90272 2.46779 4.00413C2.47201 3.15897 3.13998 2.47975 4.00764 2.49944C4.88795 2.51913 5.52639 3.1646 5.52076 4.00272ZM9.2797 6.76176H6.75971H6.7583V15.3216H9.4217V15.1219C9.4217 14.742 9.4214 14.362 9.4211 13.9819C9.4203 12.9681 9.4194 11.9532 9.4246 10.9397C9.426 10.6936 9.4372 10.4377 9.5005 10.2028C9.7381 9.3253 10.5271 8.7586 11.4074 8.8979C11.9727 8.9864 12.3467 9.3141 12.5042 9.8471C12.6013 10.1803 12.6449 10.5389 12.6491 10.8863C12.6605 11.9339 12.6589 12.9815 12.6573 14.0292C12.6567 14.399 12.6561 14.769 12.6561 15.1388V15.3202H15.328V15.1149C15.328 14.6629 15.3278 14.211 15.3275 13.7591C15.327 12.6296 15.3264 11.5001 15.3294 10.3702C15.3308 9.8597 15.276 9.3563 15.1508 8.8627C14.9638 8.1286 14.5771 7.5211 13.9485 7.0824C13.5027 6.77019 13.0133 6.5691 12.4663 6.5466C12.404 6.54401 12.3412 6.54062 12.2781 6.53721C11.9984 6.52209 11.7141 6.50673 11.4467 6.56066C10.6817 6.71394 10.0096 7.0641 9.5019 7.6814C9.4429 7.7522 9.3852 7.8241 9.2991 7.9314L9.2797 7.9557V6.76176ZM2.68164 15.3244H5.33242V6.76733H2.68164V15.3244Z" fill="#2B3F51"/>
+</svg>
+</a></li>
+<li><a href="#"><svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.607 2.20301C19.4931 1.78041 19.2705 1.39501 18.9614 1.08518C18.6522 0.775338 18.2673 0.551868 17.845 0.437007C16.279 0.00700739 10.014 7.59651e-06 10.014 7.59651e-06C10.014 7.59651e-06 3.75 -0.00699261 2.183 0.404007C1.76093 0.524154 1.37682 0.750785 1.06757 1.06214C0.758311 1.3735 0.534287 1.75913 0.417002 2.18201C0.00400165 3.74801 1.46514e-06 6.99601 1.46514e-06 6.99601C1.46514e-06 6.99601 -0.00399852 10.26 0.406001 11.81C0.636001 12.667 1.311 13.344 2.169 13.575C3.751 14.005 9.999 14.012 9.999 14.012C9.999 14.012 16.264 14.019 17.83 13.609C18.2525 13.4943 18.6377 13.2714 18.9477 12.9622C19.2576 12.653 19.4814 12.2682 19.597 11.846C20.011 10.281 20.014 7.03401 20.014 7.03401C20.014 7.03401 20.034 3.76901 19.607 2.20301ZM8.01 10.005L8.015 4.00501L13.222 7.01001L8.01 10.005Z" fill="#2B3F51"/>
+</svg>
+</a></li>
+						</ul>
+						
+					</div>
+					<div class="col menu">
+						<ul class="f_menu">
+							<li><a href="#">О платформе</a></li>
+							<li><a href="#" class="active">Функции</a></li>
+							<li><a href="#">Тарифы</a></li>
+							<li><a href="#">Вход</a></li>
+							<li><a href="#">Регистрация</a></li>
+						</ul>
+						<ul class="f_menu">
+							<li><a href="#">Поддержка</a></li>
+							<li><a href="#">Блог</a></li>
+							<li><a href="#">Интеграции</a></li>
+							<li><a href="#">Документация</a></li>
+							<li><a href="#">Статус сервиса</a></li>
+						</ul>
+					</div>
+					<div class="col">
+						<ul class="links">
+							<li><a href="">Политика конфиденциальности</a></li>
+							<li><a href="" class="active">Условия использования</a></li>
+							<li><a href="">Управление cookies</a></li>
+						</ul>
+						<p class="copy">© 2025 All-in-One. Все права защищены.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="f_bottom">
+			<div class="container">
+				<div class="f_bottom_wrap">
+					<ul class="links">
+							<li><a href="">Политика конфиденциальности</a></li>
+							<li><a href="" class="active">Условия использования</a></li>
+							<li><a href="">Управление cookies</a></li>
+						</ul>
+						<p class="copy">© 2025 All-in-One. Все права защищены.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>

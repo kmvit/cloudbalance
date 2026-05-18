@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>Cloud Balance</title>
+	<meta name="description" content="Simple Starter Description">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="icon" href="images/favicon.png">
+	<meta property="og:image" content="images/preview.jpg">
+
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="libs/swiper/css/swiper-bundle.min.css">
+	<link rel="stylesheet" href="libs/fancybox/css/fancybox.css">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/media.css">
+	<link rel="stylesheet" href="css/ui-extensions.css">
+
+	<script src="libs/jquery/jquery-3.6.0.min.js" defer></script>
+	<script src="libs/swiper/js/swiper-bundle.min.js" defer></script>
+	<script src="libs/fancybox/js/fancybox.umd.js" defer></script>
+
+	<script src="js/common.js" defer></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+	<header>
+		<div class="h_top">
+			<div class="container">
+				<div class="h_top_wrap">
+					<a href="#" class="logo">
+						<div class="img">
+							<img src="images/logo.svg" alt="">
+						</div>
+						<p>Cloud Balance</p>
+					</a>
+					<ul class="h_menu">
+						<li><a href="#">Бухучет</a></li>
+						<li><a href="#">Налоги</a></li>
+						<li><a href="#">Кадры</a></li>
+						<li><a href="#" class="parent">Ресурсы<div class="arrow"><svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></a></li>
+						<li><a href="#" class="parent">Продукт <div class="arrow"><svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></a></li>
+					</ul>
+					<a href="#" class="btn">Вход</a>
+					<a href="#" class="hamburger"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.1748 0.5C12.3391 0.5 12.4411 0.548503 12.5215 0.628906C12.6017 0.709215 12.6503 0.810702 12.6504 0.974609C12.6504 1.13881 12.6018 1.2409 12.5215 1.32129L7.26758 6.5752L7.62109 6.92871L12.5215 11.8281C12.6019 11.9085 12.6504 12.0106 12.6504 12.1748C12.6504 12.3391 12.6019 12.4411 12.5215 12.5215C12.4411 12.6019 12.3391 12.6504 12.1748 12.6504C12.0106 12.6504 11.9085 12.6019 11.8281 12.5215L6.92871 7.62109L6.5752 7.26758L1.32129 12.5215C1.2409 12.6018 1.13881 12.6504 0.974609 12.6504C0.810702 12.6503 0.709215 12.6017 0.628906 12.5215C0.548503 12.4411 0.5 12.3391 0.5 12.1748C0.500038 12.0106 0.548535 11.9085 0.628906 11.8281L5.88184 6.5752L5.52832 6.22168L0.628906 1.32129C0.548504 1.24089 0.5 1.13888 0.5 0.974609C0.500076 0.810568 0.548567 0.709245 0.628906 0.628906C0.709245 0.548567 0.810568 0.500076 0.974609 0.5C1.13888 0.5 1.24089 0.548504 1.32129 0.628906L6.22168 5.52832L6.5752 5.88184L11.8281 0.628906C11.9085 0.548535 12.0106 0.500038 12.1748 0.5Z" fill="#05050A" stroke="#05050A"/></svg></a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="s-param section">
+			<div class="container">
+				<span class="block_title">Отправьте сообщение <br> в поддержку</span>
+				<p class="page-desc">Прикрепите файлы и опишите проблему подробно</p>
+				<div class="form">
+					<input type="text" placeholder="Ваше сообщение">
+					<button class="btn dp blue">Отправить</button>
+				</div>
+				<div class="dr">Отправляя сообщение, вы согласны с обработкой данных</div>
+			</div>
+		</section>
+
+		<section class="s-chat section">
+			<div class="container">
+				<div class="chat_wrap">
+					<div class="chat_info">
+						<div class="rows">
+							<div class="item">
+								<div class="desc">
+									<span>Здравствуйте</span>
+									<time>20:35</time>
+								</div>
+							</div>
+						</div>
+						<div class="rows">
+							<div class="item">
+								<div class="ava">
+									<img src="images/freepik__background__546251.png" alt="">
+								</div>
+								<div class="desc">
+									<span>Здравствуйте, чем могу помочь?</span>
+									<time>20:35</time>
+								</div>
+							</div>
+						</div>
+						<div class="rows">
+							<div class="item">
+								<div class="desc">
+									<span>Где я могу увидеть графики отпусков?</span>
+									<time>20:35</time>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="chat_send">
+						<div class="file">
+							<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2.26156 15.8519C3.4334 16.7198 4.88187 17.1299 6.33478 17.0052C7.78769 16.8804 9.14502 16.2293 10.1517 15.1742L15.2016 10.1243C15.3579 9.96804 15.4457 9.75607 15.4457 9.53506C15.4457 9.31405 15.3579 9.10209 15.2016 8.9458C15.0453 8.78952 14.8334 8.70173 14.6124 8.70173C14.3913 8.70173 14.1794 8.78952 14.0231 8.9458L8.81409 14.1548C8.37723 14.5919 7.84864 14.9263 7.2666 15.1338C6.68456 15.3413 6.06365 15.4168 5.44884 15.3548C4.83403 15.2927 4.24072 15.0947 3.71188 14.7751C3.18305 14.4554 2.73192 14.0221 2.3912 13.5066C1.86642 12.676 1.64379 11.6899 1.76077 10.7144C1.87775 9.73883 2.3272 8.83335 3.03349 8.15031L8.81409 2.36971C9.07409 2.10923 9.38841 1.90937 9.73458 1.7844C10.0808 1.65943 10.4503 1.61244 10.8167 1.64677C11.1831 1.68111 11.5375 1.79593 11.8544 1.98303C12.1713 2.17013 12.443 2.42491 12.6501 2.72916C12.9744 3.23382 13.1129 3.83559 13.042 4.43124C12.971 5.02689 12.695 5.57928 12.2612 5.99363L7.63557 10.6193C7.47929 10.7756 7.26733 10.8634 7.04632 10.8634C6.8253 10.8634 6.61334 10.7756 6.45706 10.6193C6.30078 10.463 6.21299 10.251 6.21299 10.03C6.21298 9.80902 6.30078 9.59706 6.45706 9.44078L9.9926 5.90525C10.1489 5.74897 10.2367 5.537 10.2367 5.31599C10.2367 5.09498 10.1489 4.88301 9.9926 4.72673C9.83632 4.57045 9.62436 4.48266 9.40334 4.48266C9.18233 4.48266 8.97037 4.57045 8.81409 4.72673L5.27855 8.26227C5.01121 8.52036 4.80476 8.8348 4.67423 9.18272C4.5437 9.53064 4.49237 9.90328 4.52398 10.2735C4.55559 10.6438 4.66933 11.0023 4.85694 11.3231C5.04456 11.6438 5.30131 11.9187 5.60853 12.1278C6.11868 12.4579 6.72914 12.597 7.33194 12.5204C7.93475 12.4439 8.49105 12.1566 8.90247 11.7094L13.5281 7.08376C13.9652 6.6469 14.2996 6.11831 14.5071 5.53627C14.7146 4.95423 14.7901 4.33332 14.7281 3.71851C14.666 3.1037 14.468 2.51039 14.1484 1.98155C13.8287 1.45272 13.3955 1.0016 12.88 0.66087C12.0493 0.136093 11.0632 -0.0865374 10.0877 0.0304426C9.11213 0.147423 8.20665 0.596872 7.52362 1.30316L1.74302 7.08376C1.15014 7.6673 0.688929 8.3709 0.390334 9.14734C0.0917387 9.92378 -0.037334 10.7551 0.0117771 11.5855C0.0608882 12.416 0.287046 13.2263 0.675078 13.9621C1.06311 14.698 1.60404 15.3423 2.26156 15.8519Z" fill="#2B3F51"/>
+</svg>
+
+						</div>
+						<input type="text" placeholder="Ваше сообщение">
+						<button class="send"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2246_6599)">
+<path d="M21.2963 10.6253C21.2955 10.2038 21.0527 9.81709 20.6706 9.63766L5.97605 2.67707C5.58085 2.48914 5.11062 2.55565 4.78347 2.84567C4.45555 3.13647 4.33258 3.59355 4.47102 4.01041L6.24519 9.32984L14.0155 10.6253L6.24365 11.9207L4.46947 17.2402C4.33954 17.6346 4.44318 18.0677 4.73475 18.3593C4.75099 18.3755 4.76723 18.3902 4.78347 18.4049C5.11139 18.6957 5.58085 18.763 5.9776 18.575L20.6722 11.6145C21.0527 11.4335 21.2963 11.0476 21.2963 10.6253Z" fill="#0A66C2"/>
+</g>
+<defs>
+<clipPath id="clip0_2246_6599">
+<rect width="20" height="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="s-param section">
+			<div class="container">
+				<div class="desr"><small>Поддержка</small></div>
+				<span class="block_title">Мы здесь, чтобы помочь</span>
+				<p class="page-desc">Ответим на вопросы, разберемся с проблемами и покажем, как максимально использовать платформу</p>
+				<div class="buttons">
+					<a href="#" class="btn dp blue">Написать в чат</a>
+					<a href="#" class="btn dp">Посмотреть FAQ</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="s-reviews section">
+			<div class="container">
+				<div class="head">
+					<div class="dx">
+						<span class="block_title">Что говорят клиенты</span>
+						<p class="page-desc">Реальные истории успеха</p>
+					</div>
+					<div class="control">
+						<div class="r-next swiper-button-prev"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.45188 12.5692C8.2139 12.8071 8.2139 13.1929 8.45188 13.4309L14.6647 19.6437C14.9026 19.8816 15.2884 19.8816 15.5264 19.6437L15.8137 19.3564C16.0517 19.1184 16.0517 18.7326 15.8137 18.4946L10.3191 13L15.8137 7.50542C16.0517 7.26744 16.0517 6.88166 15.8137 6.64368L15.5264 6.35638C15.2884 6.1184 14.9026 6.1184 14.6647 6.35638L8.45188 12.5692Z" fill="#0A66C2"/></svg></div>
+ 				 		<div class="r-prev swiper-button-next"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.45188 12.5692C8.2139 12.8071 8.2139 13.1929 8.45188 13.4309L14.6647 19.6437C14.9026 19.8816 15.2884 19.8816 15.5264 19.6437L15.8137 19.3564C16.0517 19.1184 16.0517 18.7326 15.8137 18.4946L10.3191 13L15.8137 7.50542C16.0517 7.26744 16.0517 6.88166 15.8137 6.64368L15.5264 6.35638C15.2884 6.1184 14.9026 6.1184 14.6647 6.35638L8.45188 12.5692Z" fill="#0A66C2"/></svg></div>
+					</div>
+				</div>
+				<div class="reviews_wrap">
+					<div class="swiper">
+					<ul class="reviews_list swiper-wrapper">
+						<li class="swiper-slide">
+							<div class="image">
+								<img src="images/PlaceholderLogo.png" alt="">
+							</div>
+							<div class="desc">
+								"Поддержка ответила на мой вопрос за час, и проблема решилась мгновенно"
+							</div>
+							<div class="profile">
+								<div class="ava"><img src="images/TaglineWrapper.png" alt=""></div>
+								<div class="info">
+									<span>Дмитрий Волков</span>
+									<small>Главный бухгалтер, ООО Гамма</small>
+								</div>
+							</div>
+							<a href="" class="btn">Посмотреть историю <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.58752 0.170854C6.81533 -0.0569515 7.18467 -0.0569515 7.41248 0.170854L11.4958 4.25419C11.7236 4.48199 11.7236 4.85134 11.4958 5.07914L7.41248 9.16248C7.18467 9.39028 6.81533 9.39028 6.58752 9.16248C6.35971 8.93467 6.35971 8.56532 6.58752 8.33752L9.67504 5.25H0.583333C0.261167 5.25 0 4.98883 0 4.66667C0 4.3445 0.261167 4.08333 0.583333 4.08333H9.67504L6.58752 0.995812C6.35971 0.768006 6.35971 0.39866 6.58752 0.170854Z" fill="#0A66C2"/></svg></a>
+						</li>
+						<li class="swiper-slide">
+							<div class="image">
+								<img src="images/PlaceholderLogo.png" alt="">
+							</div>
+							<div class="desc">
+								"Поддержка ответила на мой вопрос за час, и проблема решилась мгновенно"
+							</div>
+							<div class="profile">
+								<div class="ava"><img src="images/TaglineWrapper.png" alt=""></div>
+								<div class="info">
+									<span>Дмитрий Волков</span>
+									<small>Главный бухгалтер, ООО Гамма</small>
+								</div>
+							</div>
+							<a href="" class="btn">Посмотреть историю <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.58752 0.170854C6.81533 -0.0569515 7.18467 -0.0569515 7.41248 0.170854L11.4958 4.25419C11.7236 4.48199 11.7236 4.85134 11.4958 5.07914L7.41248 9.16248C7.18467 9.39028 6.81533 9.39028 6.58752 9.16248C6.35971 8.93467 6.35971 8.56532 6.58752 8.33752L9.67504 5.25H0.583333C0.261167 5.25 0 4.98883 0 4.66667C0 4.3445 0.261167 4.08333 0.583333 4.08333H9.67504L6.58752 0.995812C6.35971 0.768006 6.35971 0.39866 6.58752 0.170854Z" fill="#0A66C2"/></svg></a>
+						</li>
+						<li class="swiper-slide">
+							<div class="image">
+								<img src="images/PlaceholderLogo.png" alt="">
+							</div>
+							<div class="desc">
+								"Поддержка ответила на мой вопрос за час, и проблема решилась мгновенно"
+							</div>
+							<div class="profile">
+								<div class="ava"><img src="images/TaglineWrapper.png" alt=""></div>
+								<div class="info">
+									<span>Дмитрий Волков</span>
+									<small>Главный бухгалтер, ООО Гамма</small>
+								</div>
+							</div>
+							<a href="" class="btn">Посмотреть историю <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.58752 0.170854C6.81533 -0.0569515 7.18467 -0.0569515 7.41248 0.170854L11.4958 4.25419C11.7236 4.48199 11.7236 4.85134 11.4958 5.07914L7.41248 9.16248C7.18467 9.39028 6.81533 9.39028 6.58752 9.16248C6.35971 8.93467 6.35971 8.56532 6.58752 8.33752L9.67504 5.25H0.583333C0.261167 5.25 0 4.98883 0 4.66667C0 4.3445 0.261167 4.08333 0.583333 4.08333H9.67504L6.58752 0.995812C6.35971 0.768006 6.35971 0.39866 6.58752 0.170854Z" fill="#0A66C2"/></svg></a>
+						</li>
+						<li class="swiper-slide">
+							<div class="image">
+								<img src="images/PlaceholderLogo.png" alt="">
+							</div>
+							<div class="desc">
+								"Поддержка ответила на мой вопрос за час, и проблема решилась мгновенно"
+							</div>
+							<div class="profile">
+								<div class="ava"><img src="images/TaglineWrapper.png" alt=""></div>
+								<div class="info">
+									<span>Дмитрий Волков</span>
+									<small>Главный бухгалтер, ООО Гамма</small>
+								</div>
+							</div>
+							<a href="" class="btn">Посмотреть историю <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.58752 0.170854C6.81533 -0.0569515 7.18467 -0.0569515 7.41248 0.170854L11.4958 4.25419C11.7236 4.48199 11.7236 4.85134 11.4958 5.07914L7.41248 9.16248C7.18467 9.39028 6.81533 9.39028 6.58752 9.16248C6.35971 8.93467 6.35971 8.56532 6.58752 8.33752L9.67504 5.25H0.583333C0.261167 5.25 0 4.98883 0 4.66667C0 4.3445 0.261167 4.08333 0.583333 4.08333H9.67504L6.58752 0.995812C6.35971 0.768006 6.35971 0.39866 6.58752 0.170854Z" fill="#0A66C2"/></svg></a>
+						</li>
+					</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="page-content section">
+			<div class="container">
+				<div class="page-content_wrap">
+					<div class="side">
+						<span class="title">Содержание</span>
+						<ul>
+							<li><a href="#" class="active">Начало работы <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75549 2.50411C7.9833 2.2763 8.35264 2.2763 8.58045 2.50411L12.6638 6.58744C12.8916 6.81524 12.8916 7.18459 12.6638 7.4124L8.58045 11.4957C8.35264 11.7235 7.9833 11.7235 7.75549 11.4957C7.52768 11.2679 7.52768 10.8986 7.75549 10.6708L10.843 7.58325H1.7513C1.42914 7.58325 1.16797 7.32208 1.16797 6.99992C1.16797 6.67775 1.42914 6.41658 1.7513 6.41658H10.843L7.75549 3.32906C7.52768 3.10126 7.52768 2.73191 7.75549 2.50411Z" fill="#0A66C2"/></svg></a></li>
+							<li><a href="#">Основные функции</a></li>
+							<li><a href="#">Управление данными</a></li>
+							<li><a href="#">Интеграции</a></li>
+							<li><a href="#">Безопасность</a></li>
+						</ul>
+					</div>
+					<div class="desc">
+						<h2>Heading 2</h2>
+						<p><strong>Dolor enim eu tortor urna sed duis nulla. Aliquam vestibulum, nulla odio nisl vitae. In aliquet pellentesque aenean hac vestibulum turpis mi bibendum diam. Tempor integer aliquam in vitae malesuada fringilla.</strong></p>
+						<p>Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus aliquam enim urna, etiam. Mauris posuere vulputate arcu amet, vitae nisi, tellus tincidunt. At feugiat sapien varius id.</p>
+						<h3>Heading 3</h3>
+						<p>Eget quis mi enim, leo lacinia pharetra, semper. Eget in volutpat mollis at volutpat lectus velit, sed auctor. Porttitor fames arcu quis fusce augue enim. Quis at habitant diam at. Suscipit tristique risus, at donec. In turpis vel et quam imperdiet. Ipsum molestie aliquet sodales id est ac volutpat.</p>
+						<p>Tristique odio senectus nam posuere ornare leo metus, ultricies. Blandit duis ultricies vulputate morbi feugiat cras placerat elit. Aliquam tellus lorem sed ac. Montes, sed mattis pellentesque suscipit accumsan. Cursus viverra aenean magna risus elementum faucibus molestie pellentesque. Arcu ultricies sed mauris vestibulum.</p>
+						<h4>Heading 4</h4>
+						<p>Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at scelerisque amet nulla purus habitasse.</p>
+						<p><img src="images/Image12.png" alt=""></p>
+						<div class="dx">Image caption goes here</div>
+						<h5>Heading 5</h5>
+						<p>Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at scelerisque amet nulla purus habitasse.</p>
+						<blockquote class="notefy_gray"><p>"Ipsum sit mattis nulla quam nulla. Gravida id gravida ac enim mauris id. Non pellentesque congue eget consectetur turpis. Sapien, dictum molestie sem tempor. Diam elit, orci, tincidunt aenean tempus."</p></blockquote>
+						<h6>Heading 6</h6>
+						<p>Nunc sed faucibus bibendum feugiat sed interdum. Ipsum egestas condimentum mi massa. In tincidunt pharetra consectetur sed duis facilisis metus. Etiam egestas in nec sed et. Quis lobortis at sit dictum eget nibh tortor commodo cursus.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="s-contacts section">
+			<div class="container">
+				<div class="contacts_wrap">
+					<div class="info">
+						<span class="block_title">Свяжитесь с нами</span>
+						<p class="page-desc">Мы готовы ответить на все вопросы о платформе</p>
+						<ul>
+							<li>
+								<div class="icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2 8C2 5.79086 3.79086 4 6 4H18C20.2091 4 22 5.79086 22 8V16C22 18.2091 20.2091 20 18 20H6C3.79086 20 2 18.2091 2 16V8ZM6 6C4.89543 6 4 6.89543 4 8V16C4 17.1046 4.89543 18 6 18H18C19.1046 18 20 17.1046 20 16V8C20 6.89543 19.1046 6 18 6H6Z" fill="#0A66C2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.21917 8.37534C6.56418 7.94408 7.19347 7.87416 7.62473 8.21917L12 11.7194L16.3753 8.21917C16.8066 7.87416 17.4359 7.94408 17.7809 8.37534C18.1259 8.8066 18.056 9.4359 17.6247 9.78091L12 14.2807L6.37534 9.78091C5.94408 9.4359 5.87416 8.8066 6.21917 8.37534Z" fill="#0A66C2"/></svg>
+								</div>
+								<div class="text">
+									<span>Email</span>
+									<p>Напишите нам в любое время</p>
+									<a href="">support@allinsaas.ru</a>
+								</div>
+							</li>
+							<li>
+								<div class="icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.0452 6.46282C13.2718 5.89833 13.9131 5.62444 14.4776 5.85108C15.3355 6.19551 16.1116 6.71609 16.7557 7.3792C17.3998 8.0423 17.8976 8.83316 18.217 9.70069C18.4271 10.2715 18.1347 10.9046 17.5639 11.1148C16.9931 11.3249 16.36 11.0325 16.1498 10.4617C15.9369 9.88334 15.605 9.35609 15.1756 8.91402C14.7462 8.47196 14.2288 8.1249 13.6569 7.89528C13.0924 7.66864 12.8185 7.02731 13.0452 6.46282Z" fill="#0A66C2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.5173 2.12521C13.6747 1.53764 14.2787 1.18896 14.8662 1.3464C16.7337 1.84679 18.4366 2.82994 19.8037 4.19704C21.1708 5.56413 22.1539 7.267 22.6543 9.13449C22.8118 9.72205 22.4631 10.326 21.8755 10.4834C21.288 10.6409 20.684 10.2922 20.5266 9.70461C20.1263 8.21062 19.3397 6.84833 18.2461 5.75465C17.1524 4.66098 15.7901 3.87445 14.2961 3.47414C13.7085 3.31671 13.3599 2.71277 13.5173 2.12521Z" fill="#0A66C2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.27086 4.51168C6.93426 3.62331 9.62571 5.29166 10.3733 7.99279C10.8827 9.83339 10.4003 11.7634 9.22384 13.085C9.46478 13.397 9.72806 13.697 10.0139 13.9831C10.2983 14.2677 10.5965 14.53 10.9066 14.7701C12.2277 13.5844 14.1636 13.0965 16.0095 13.6082C18.7101 14.3567 20.3753 17.0503 19.4883 19.7136C18.9064 21.461 17.8212 22.5227 16.3739 22.8722C15.0291 23.1969 13.5791 22.8517 12.3003 22.3201C9.72455 21.2494 7.18122 19.1404 6.01967 17.9779C4.83071 16.7881 2.73077 14.2411 1.66976 11.6702C1.14289 10.3936 0.803641 8.94901 1.12912 7.61037C1.47929 6.17018 2.5356 5.09043 4.27086 4.51168ZM8.25031 8.58037C7.79577 6.93808 6.2855 6.16181 4.96785 6.60131C3.80962 6.98761 3.4079 7.56186 3.26956 8.1308C3.10654 8.80128 3.2483 9.72093 3.70597 10.8299C4.61404 13.0302 6.49731 15.3395 7.57787 16.4209C8.63228 17.4761 10.9392 19.3688 13.1458 20.2861C14.2581 20.7484 15.1823 20.8938 15.8568 20.7309C16.4289 20.5928 17.0083 20.1887 17.3984 19.0175C17.8382 17.6968 17.0607 16.1854 15.4211 15.731C14.2009 15.3927 12.9463 15.7846 12.1997 16.5842C11.7176 17.1006 10.7985 17.3949 10.0166 16.8491C9.46639 16.4651 8.94389 16.0287 8.45568 15.5401C7.96669 15.0508 7.5301 14.527 7.14601 13.9756C6.60365 13.197 6.89305 12.2815 7.40566 11.7983C8.19936 11.05 8.58735 9.79817 8.25031 8.58037Z" fill="#0A66C2"/>
+</svg>
+
+								</div>
+								<div class="text">
+									<span>Телефон</span>
+									<p>Позвоните нам по номеру</p>
+									<a href="">+7 (495) 000-0000</a>
+								</div>
+							</li>
+							<li>
+								<div class="icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.20002C10.2681 3.20002 8.59507 3.92326 7.35252 5.23036C6.10817 6.53934 5.39997 8.32608 5.39997 10.2001C5.39997 12.9285 7.08994 15.5918 8.96739 17.6765C9.88679 18.6974 10.8095 19.5336 11.5033 20.1147C11.687 20.2686 11.854 20.4041 12 20.52C12.146 20.4041 12.3131 20.2686 12.4968 20.1147C13.1905 19.5336 14.1133 18.6974 15.0327 17.6765C16.9101 15.5918 18.6001 12.9285 18.6001 10.2001C18.6001 8.32608 17.8919 6.53934 16.6475 5.23036C15.405 3.92326 13.732 3.20002 12 3.20002ZM12 21.9002C11.3684 22.8008 11.3682 22.8006 11.3679 22.8004L11.3651 22.7985L11.3589 22.7941L11.3384 22.7795C11.3212 22.7672 11.2968 22.7497 11.2658 22.7271C11.2038 22.6819 11.1152 22.6164 11.0037 22.5317C10.7809 22.3625 10.4664 22.1161 10.0905 21.8012C9.34051 21.173 8.33822 20.2654 7.3326 19.1488C5.36002 16.9585 3.19995 13.7717 3.19995 10.2001C3.19995 7.77754 4.11426 5.44371 5.758 3.71458C7.40354 1.98355 9.64761 1 12 1C14.3524 1 16.5965 1.98356 18.2421 3.71458C19.8858 5.44371 20.8001 7.77754 20.8001 10.2001C20.8001 13.7717 18.64 16.9585 16.6675 19.1488C15.6618 20.2654 14.6596 21.173 13.9095 21.8012C13.5337 22.1161 13.2191 22.3625 12.9963 22.5317C12.8849 22.6164 12.7963 22.6819 12.7343 22.7271C12.7032 22.7497 12.6789 22.7672 12.6616 22.7795L12.6411 22.7941L12.635 22.7985L12.6329 22.7999C12.6326 22.8001 12.6316 22.8008 12 21.9002ZM12 21.9002L12.6316 22.8008C12.2525 23.0667 11.747 23.0663 11.3679 22.8004L12 21.9002Z" fill="#0A66C2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.9999 7.60041C10.7849 7.60041 9.79987 8.58539 9.79987 9.80043C9.79987 11.0155 10.7849 12.0005 11.9999 12.0005C13.2149 12.0005 14.1999 11.0155 14.1999 9.80043C14.1999 8.58539 13.2149 7.60041 11.9999 7.60041ZM7.59985 9.80043C7.59985 7.37036 9.56982 5.40039 11.9999 5.40039C14.43 5.40039 16.3999 7.37036 16.3999 9.80043C16.3999 12.2305 14.43 14.2005 11.9999 14.2005C9.56982 14.2005 7.59985 12.2305 7.59985 9.80043Z" fill="#0A66C2"/>
+</svg>
+
+								</div>
+								<div class="text">
+									<span>Офис</span>
+									<p>Москва, Россия, центр города</p>
+									<a href="" class="btn blue">Маршрут <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50411C7.98207 2.2763 8.35142 2.2763 8.57923 2.50411L12.6626 6.58744C12.8904 6.81524 12.8904 7.18459 12.6626 7.4124L8.57923 11.4957C8.35142 11.7235 7.98207 11.7235 7.75427 11.4957C7.52646 11.2679 7.52646 10.8986 7.75427 10.6708L10.8418 7.58325H1.75008C1.42792 7.58325 1.16675 7.32208 1.16675 6.99992C1.16675 6.67775 1.42792 6.41658 1.75008 6.41658H10.8418L7.75427 3.32906C7.52646 3.10126 7.52646 2.73191 7.75427 2.50411Z" fill="white"></path></svg></a>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="map">
+						<img src="images/image1.png" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="f_top">
+			<div class="container">
+				<div class="f_top_wrap">
+					<div class="col">
+						<div class="top">
+							<a href="#" class="logo">
+								<div class="img">
+									<img src="images/logo.svg" alt="">
+								</div>
+								<p>Cloud Balance</p>
+							</a>
+							<ul class="f_info">
+								<li><a href="#">support@allinsaas.ru</a></li>
+								<li><a href="#">+7 (495) 000-0000</a></li>
+								<li><p>Москва, Россия, центр города</p></li>
+							</ul>
+						</div>
+						<ul class="soc">
+							<li><a href="#"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 10.0611C20 4.50451 15.5229 0 10 0C4.47715 0 0 4.50451 0 10.0611C0 15.0828 3.65684 19.2452 8.4375 20V12.9694H5.89844V10.0611H8.4375V7.84452C8.4375 5.32296 9.9305 3.93012 12.2146 3.93012C13.3088 3.93012 14.4531 4.12663 14.4531 4.12663V6.60261H13.1922C11.95 6.60261 11.5625 7.37822 11.5625 8.1739V10.0611H14.3359L13.8926 12.9694H11.5625V20C16.3432 19.2452 20 15.083 20 10.0611Z" fill="#2B3F51"/>
+</svg>
+</a></li>
+							<li><a href="#"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13 0H5C2.23858 0 0 2.23858 0 5V13C0 15.7614 2.23858 18 5 18H13C15.7614 18 18 15.7614 18 13V5C18 2.23858 15.7614 0 13 0ZM16.25 13C16.2445 14.7926 14.7926 16.2445 13 16.25H5C3.20735 16.2445 1.75549 14.7926 1.75 13V5C1.75549 3.20735 3.20735 1.75549 5 1.75H13C14.7926 1.75549 16.2445 3.20735 16.25 5V13ZM13.75 5.25C14.3023 5.25 14.75 4.80228 14.75 4.25C14.75 3.69772 14.3023 3.25 13.75 3.25C13.1977 3.25 12.75 3.69772 12.75 4.25C12.75 4.80228 13.1977 5.25 13.75 5.25ZM9 4.5C6.51472 4.5 4.5 6.51472 4.5 9C4.5 11.4853 6.51472 13.5 9 13.5C11.4853 13.5 13.5 11.4853 13.5 9C13.5027 7.8057 13.0294 6.65957 12.1849 5.81508C11.3404 4.97059 10.1943 4.49734 9 4.5ZM6.25 9C6.25 10.5188 7.4812 11.75 9 11.75C10.5188 11.75 11.75 10.5188 11.75 9C11.75 7.4812 10.5188 6.25 9 6.25C7.4812 6.25 6.25 7.4812 6.25 9Z" fill="#2B3F51"/>
+</svg>
+</a></li>
+<li><a href=""><svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.1761 0H16.9362L10.9061 6.7774L18 16H12.4456L8.0951 10.4066L3.11723 16H0.35544L6.80517 8.7508L0 0H5.69545L9.6279 5.11262L14.1761 0ZM13.2073 14.3754H14.7368L4.86441 1.53928H3.2232L13.2073 14.3754Z" fill="#2B3F51"/>
+</svg></a>
+</li>
+<li><a href="#"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 0C0.67157 0 0 0.67157 0 1.5V16.5C0 17.3284 0.67157 18 1.5 18H16.5C17.3284 18 18 17.3284 18 16.5V1.5C18 0.67157 17.3284 0 16.5 0H1.5ZM5.52076 4.00272C5.52639 4.95897 4.81061 5.54819 3.96123 5.54397C3.16107 5.53975 2.46357 4.90272 2.46779 4.00413C2.47201 3.15897 3.13998 2.47975 4.00764 2.49944C4.88795 2.51913 5.52639 3.1646 5.52076 4.00272ZM9.2797 6.76176H6.75971H6.7583V15.3216H9.4217V15.1219C9.4217 14.742 9.4214 14.362 9.4211 13.9819C9.4203 12.9681 9.4194 11.9532 9.4246 10.9397C9.426 10.6936 9.4372 10.4377 9.5005 10.2028C9.7381 9.3253 10.5271 8.7586 11.4074 8.8979C11.9727 8.9864 12.3467 9.3141 12.5042 9.8471C12.6013 10.1803 12.6449 10.5389 12.6491 10.8863C12.6605 11.9339 12.6589 12.9815 12.6573 14.0292C12.6567 14.399 12.6561 14.769 12.6561 15.1388V15.3202H15.328V15.1149C15.328 14.6629 15.3278 14.211 15.3275 13.7591C15.327 12.6296 15.3264 11.5001 15.3294 10.3702C15.3308 9.8597 15.276 9.3563 15.1508 8.8627C14.9638 8.1286 14.5771 7.5211 13.9485 7.0824C13.5027 6.77019 13.0133 6.5691 12.4663 6.5466C12.404 6.54401 12.3412 6.54062 12.2781 6.53721C11.9984 6.52209 11.7141 6.50673 11.4467 6.56066C10.6817 6.71394 10.0096 7.0641 9.5019 7.6814C9.4429 7.7522 9.3852 7.8241 9.2991 7.9314L9.2797 7.9557V6.76176ZM2.68164 15.3244H5.33242V6.76733H2.68164V15.3244Z" fill="#2B3F51"/>
+</svg>
+</a></li>
+<li><a href="#"><svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.607 2.20301C19.4931 1.78041 19.2705 1.39501 18.9614 1.08518C18.6522 0.775338 18.2673 0.551868 17.845 0.437007C16.279 0.00700739 10.014 7.59651e-06 10.014 7.59651e-06C10.014 7.59651e-06 3.75 -0.00699261 2.183 0.404007C1.76093 0.524154 1.37682 0.750785 1.06757 1.06214C0.758311 1.3735 0.534287 1.75913 0.417002 2.18201C0.00400165 3.74801 1.46514e-06 6.99601 1.46514e-06 6.99601C1.46514e-06 6.99601 -0.00399852 10.26 0.406001 11.81C0.636001 12.667 1.311 13.344 2.169 13.575C3.751 14.005 9.999 14.012 9.999 14.012C9.999 14.012 16.264 14.019 17.83 13.609C18.2525 13.4943 18.6377 13.2714 18.9477 12.9622C19.2576 12.653 19.4814 12.2682 19.597 11.846C20.011 10.281 20.014 7.03401 20.014 7.03401C20.014 7.03401 20.034 3.76901 19.607 2.20301ZM8.01 10.005L8.015 4.00501L13.222 7.01001L8.01 10.005Z" fill="#2B3F51"/>
+</svg>
+</a></li>
+						</ul>
+						
+					</div>
+					<div class="col menu">
+						<ul class="f_menu">
+							<li><a href="#">О платформе</a></li>
+							<li><a href="#" class="active">Функции</a></li>
+							<li><a href="#">Тарифы</a></li>
+							<li><a href="#">Вход</a></li>
+							<li><a href="#">Регистрация</a></li>
+						</ul>
+						<ul class="f_menu">
+							<li><a href="#">Поддержка</a></li>
+							<li><a href="#">Блог</a></li>
+							<li><a href="#">Интеграции</a></li>
+							<li><a href="#">Документация</a></li>
+							<li><a href="#">Статус сервиса</a></li>
+						</ul>
+					</div>
+					<div class="col">
+						<ul class="links">
+							<li><a href="">Политика конфиденциальности</a></li>
+							<li><a href="" class="active">Условия использования</a></li>
+							<li><a href="">Управление cookies</a></li>
+						</ul>
+						<p class="copy">© 2025 All-in-One. Все права защищены.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="f_bottom">
+			<div class="container">
+				<div class="f_bottom_wrap">
+					<ul class="links">
+							<li><a href="">Политика конфиденциальности</a></li>
+							<li><a href="" class="active">Условия использования</a></li>
+							<li><a href="">Управление cookies</a></li>
+						</ul>
+						<p class="copy">© 2025 All-in-One. Все права защищены.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>

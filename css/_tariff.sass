@@ -1,0 +1,146 @@
+
+.s-tariff
+	.tariff_wrap
+		.tariff_list
+			display: grid
+			grid-template-columns: repeat(3, 1fr)
+			gap: 32px
+			margin: 0
+			padding: 0
+			list-style-type: none
+			li
+				.top, .bottom
+					padding: 48px
+					background: #FFFFFF
+					border-radius: 50px
+				.bottom
+					position: relative
+					margin-top: 4px
+					&::before
+						content: ''
+						position: absolute
+						top: -4px
+						left: 0
+						width: 100%
+						height: 4px
+						background: url(../images/line.png) center no-repeat
+						z-index: 2
+					p
+						max-width: 88px
+						margin: 0
+						font-size: 16px
+						line-height: 24px
+						color: #2B3F51
+						&::before
+							display: none
+					.price
+						display: flex
+						justify-content: space-between
+						align-items: center
+						margin-bottom: 32px
+					.cost
+						font-size: 48px
+						line-height: 58px
+						letter-spacing: -0.01em
+						color: #2B3F51
+						display: flex
+						align-items: flex-end
+						p
+							padding-bottom: 8px
+					.btn
+						width: 100%
+				.hb
+					display: flex
+					justify-content: space-between
+					align-items: center
+					margin-bottom: 32px
+				small
+					display: block
+					margin-bottom: 8px
+					font-size: 14px
+					line-height: 14px
+					color: #2B3F51
+					opacity: 0.3
+				span
+					font-size: 30px
+					line-height: 36px
+					letter-spacing: -0.01em
+					color: #2B3F51
+				.icon
+					display: flex
+					justify-content: center
+					align-items: center
+					width: 52px
+					height: 52px			
+					background: rgba(10, 102, 194, 0.1)
+					border-radius: 16px
+				p
+					position: relative
+					display: flex
+					align-items: center
+					gap: 10px
+					font-size: 16px
+					line-height: 24px
+					color: #2B3F51
+					margin-bottom: 12px
+					&:last-child
+						margin-bottom: 0
+					&.hide
+						opacity: .2
+					&::before
+						content: ''
+						display: block
+						width: 12px
+						height: 12px
+						background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzIwNTVfMTQ2NikiPgo8cGF0aCBkPSJNMS44NTcgNS4yMjI4MUwzLjk1NzE0IDguNzc0MDVDNi4xMzM2OSA1LjM3NTYgOC41Nzc1MSAyLjM5NzAxIDEwLjc5MjQgMC42Nzg4MzdDMTEuMjg4NyAwLjIyMDU5IDEyLjA1MjQgMC40ODc5MjggMTEuNTE3OCAwLjk4NDMxNEM5LjAzNTcyIDMuNTQyNjMgNy4xMjY2NiA2LjQ0NDgyIDUuMTc5MSAxMC45ODg4QzQuNDE1MzkgMTEuNTIzNCAzLjUzNzEyIDExLjc5MDcgMy4xMTcwNSAxMS4yOTQzTDAuMzY3NjQ2IDYuMzY4MzNDLTAuMDE0MTY3MSA1Ljc1NzM5IDEuMzIyMjYgNC4zNDQ1NyAxLjg1Njg2IDUuMjIyODFMMS44NTcgNS4yMjI4MVoiIGZpbGw9IiMwQTY2QzIiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8yMDU1XzE0NjYiPgo8cmVjdCB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==) center no-repeat
+
+
+@media(max-width: 1300px)
+	.s-tariff .tariff_wrap .tariff_list li 
+		.bottom 
+			&::before
+				left: 50%
+				max-width: 286px
+				transform: translate(-50%, 0)
+			.cost
+				font-size: 30px
+				line-height: 36px
+				p
+					padding-bottom: 0
+
+@media(max-width: 1199px)
+	.s-tariff .tariff_wrap .tariff_list
+		grid-template-columns: repeat(2, 1fr)
+		li .bottom::before
+			max-width: unset
+
+@media(max-width: 840px)
+	.s-tariff .tariff_wrap .tariff_list li .bottom::before
+		max-width: 260px
+
+@media(max-width: 768px)
+	.s-tariff .tariff_wrap .tariff_list li .bottom::before
+		display: none
+
+	.s-tariff .tariff_wrap .tariff_list li .bottom .cost p
+		padding-bottom: 2px
+			
+@media(max-width: 520px)
+	.s-tariff .tariff_wrap .tariff_list li 
+		span
+			font-size: 26px
+			line-height: 1.2
+		p
+			font-size: 14px
+		.bottom p
+			font-size: 14px
+			line-height: 1.2
+			
+@media(max-width: 375px)
+	.s-tariff .tariff_wrap .tariff_list li .bottom::before
+		display: block
+		max-width: 234px
+
+@media(max-width: 340px)
+	.s-tariff .tariff_wrap .tariff_list li .top
+		padding-right: 10px !important

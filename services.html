@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Cloud Balance — Управление услугами</title>
+	<meta name="description" content="Управление проектами и услугами Cloud Balance">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="icon" href="images/favicon.png">
+
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-grid.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/media.css">
+	<link rel="stylesheet" href="css/ui-extensions.css">
+	<link rel="stylesheet" href="css/profile.css">
+	<link rel="stylesheet" href="css/services.css">
+
+	<script src="libs/jquery/jquery-3.6.0.min.js" defer></script>
+	<script src="js/common.js" defer></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+	<header>
+		<div class="h_top">
+			<div class="container">
+				<div class="h_top_wrap">
+					<a href="index.html" class="logo">
+						<div class="img"><img src="images/logo.svg" alt=""></div>
+						<p>Cloud Balance</p>
+					</a>
+					<ul class="h_menu">
+						<li><a href="#">Бухучет</a></li>
+						<li><a href="#" class="active">Налоги</a></li>
+						<li><a href="#">Кадры</a></li>
+						<li><a href="#" class="parent">Ресурсы<div class="arrow"><svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></a></li>
+						<li><a href="#" class="parent">Продукт <div class="arrow"><svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></div></a></li>
+					</ul>
+					<a href="#" class="btn">Вход</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<!-- Steps Navigation -->
+		<section class="s-steps">
+			<div class="container">
+				<ul class="steps_list">
+					<li>
+						<a href="profile.html">
+							<div class="step_icon">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/>
+									<path d="M4 21C4 16.5817 7.58172 13 12 13C16.4183 13 20 16.5817 20 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+								</svg>
+							</div>
+							<div class="step_info">
+								<span>ПРОФИЛЬ</span>
+								<p>Управление вашим профилем и настройками</p>
+							</div>
+						</a>
+					</li>
+					<li class="active">
+						<a href="services.html">
+							<div class="step_icon">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect x="3" y="4" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/>
+									<path d="M8 21H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+									<path d="M12 17V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+								</svg>
+							</div>
+							<div class="step_info">
+								<span>УПРАВЛЕНИЕ ПРОЕКТАМИ И УСЛУГАМИ</span>
+								<p>Читайте последние новости и статьи</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="company.html">
+							<div class="step_icon">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M4 6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V14C20 15.1046 19.1046 16 18 16H13L8 20V16H6C4.89543 16 4 15.1046 4 14V6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+									<circle cx="9" cy="10" r="1" fill="currentColor"/>
+									<circle cx="12" cy="10" r="1" fill="currentColor"/>
+									<circle cx="15" cy="10" r="1" fill="currentColor"/>
+								</svg>
+							</div>
+							<div class="step_info">
+								<span>КОМПАНИЯ</span>
+								<p>Получите помощь и ответы на вопросы</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Tariff Plans -->
+		<section class="s-tariff section">
+			<div class="container">
+				<span class="block_title">Выберите свой план</span>
+				<p class="page-desc">Начните с базового или сразу перейдите на полный функционал</p>
+				<div class="tariff_wrap">
+					<ul class="tariff_list">
+						<li>
+							<div class="top">
+								<div class="hb">
+									<div class="text">
+										<small>Тариф</small>
+										<span>Базовый</span>
+									</div>
+									<div class="icon"><svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.199951 3.53353C0.199951 1.69258 1.69233 0.200195 3.53328 0.200195H10.1999C12.0409 0.200195 13.5333 1.69258 13.5333 3.53353V15.2475C13.5333 16.6032 12.001 17.3917 10.8979 16.6038L6.86662 13.7243L2.83535 16.6038C1.73223 17.3917 0.199951 16.6032 0.199951 15.2475V3.53353ZM3.53328 1.86686C2.61281 1.86686 1.86662 2.61305 1.86662 3.53353V15.2475L5.89789 12.3681C6.47738 11.9541 7.25585 11.9541 7.83535 12.3681L11.8666 15.2475V3.53353C11.8666 2.61305 11.1204 1.86686 10.1999 1.86686H3.53328Z" fill="#0A66C2" stroke="#0A66C2" stroke-width="0.4"/></svg></div>
+								</div>
+								<p>Бухучет и операции</p>
+								<p>Базовые отчеты</p>
+								<p>Поддержка по почте</p>
+								<p class="hide">Налоги и контрагенты</p>
+								<p class="hide">Расширенные отчеты</p>
+								<p class="hide">Приоритетная поддержка</p>
+								<p class="hide">Зарплата и кадры</p>
+								<p class="hide">Интеграции и API</p>
+								<p class="hide">Личный менеджер</p>
+								<p class="hide">Выделенная поддержка</p>
+							</div>
+							<div class="bottom">
+								<div class="price">
+									<p>Стоимость тарифа:</p>
+									<div class="cost">$19 <p>/мес</p></div>
+								</div>
+								<a href="" class="btn dp accent">Начать</a>
+							</div>
+						</li>
+						<li>
+							<div class="top">
+								<div class="hb">
+									<div class="text">
+										<small>Тариф</small>
+										<span>Бизнес</span>
+									</div>
+									<div class="icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.23067 1.77903C9.03326 0.445399 10.9667 0.4454 11.7693 1.77904L13.7179 5.01683L17.3993 5.86947C18.9157 6.22066 19.5132 8.05951 18.4928 9.23494L16.0156 12.0886L16.3424 15.8534C16.4769 17.4041 14.9127 18.5406 13.4795 17.9334L10 16.4593L6.52047 17.9334C5.08726 18.5406 3.52305 17.4041 3.65763 15.8534L3.98436 12.0886L1.50716 9.23494C0.486816 8.05951 1.08429 6.22066 2.60067 5.86947L6.28213 5.01683L8.23067 1.77903ZM10 2.84383L8.05146 6.08163C7.76313 6.56075 7.29282 6.90244 6.74806 7.02861L3.0666 7.88124L5.5438 10.7349C5.91036 11.1572 6.09 11.7101 6.04166 12.2672L5.71492 16.0319L9.19446 14.5578C9.70934 14.3397 10.2907 14.3397 10.8055 14.5578L14.2851 16.0319L13.9583 12.2672C13.91 11.7101 14.0896 11.1572 14.4562 10.7349L16.9334 7.88124L13.2519 7.02861C12.7072 6.90244 12.2369 6.56075 11.9485 6.08163L10 2.84383Z" fill="#0A66C2"/></svg></div>
+								</div>
+								<p>Бухучет и операции</p>
+								<p>Базовые отчеты</p>
+								<p>Поддержка по почте</p>
+								<p>Налоги и контрагенты</p>
+								<p>Расширенные отчеты</p>
+								<p>Приоритетная поддержка</p>
+								<p class="hide">Зарплата и кадры</p>
+								<p class="hide">Интеграции и API</p>
+								<p class="hide">Личный менеджер</p>
+								<p class="hide">Выделенная поддержка</p>
+							</div>
+							<div class="bottom">
+								<div class="price">
+									<p>Стоимость тарифа:</p>
+									<div class="cost">$29 <p>/мес</p></div>
+								</div>
+								<a href="" class="btn dp accent">Начать</a>
+							</div>
+						</li>
+						<li>
+							<div class="top">
+								<div class="hb">
+									<div class="text">
+										<small>Тариф</small>
+										<span>Корпоративный</span>
+									</div>
+									<div class="icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.47678 2.74343C6.03205 2.55418 6.61336 2.5 7.1274 2.5C8.34801 2.5 9.26829 3.02111 10.0004 3.54414C10.7382 3.0171 11.6524 2.49999 12.8873 2.5C13.4364 2.5 13.998 2.57674 14.5423 2.7578C17.8668 3.8347 18.9377 7.41409 18.0095 10.3543L18.0056 10.3667L18.0013 10.379C17.4876 11.8453 16.6476 13.1845 15.5456 14.2801L15.5409 14.2848L15.536 14.2894C13.9971 15.7711 12.2689 17.1095 10.4289 18.2143L9.99455 18.4751L9.56307 18.2095C7.72716 17.0793 6.03156 15.7768 4.47389 14.2831L4.46747 14.2769L4.46117 14.2706C3.36859 13.1771 2.52866 11.8478 2.00735 10.3828L2.00299 10.3706L1.99901 10.3582C1.05289 7.41157 2.12916 3.83646 5.47678 2.74343ZM7.1274 4.16667C6.7163 4.16667 6.3325 4.21195 6.01091 4.3222L6.00471 4.32432L5.99849 4.32635C3.75836 5.05516 2.84081 7.50961 3.58197 9.83646C4.01998 11.0615 4.72267 12.1725 5.63399 13.0864C6.97941 14.3758 8.43491 15.5153 10.0046 16.5191C11.5692 15.5364 13.0458 14.3727 14.3752 13.0935C15.2913 12.1813 15.993 11.0647 16.424 9.84037C17.1549 7.50643 16.2312 5.05526 14.026 4.3425L14.0186 4.3401L14.0186 4.34007C13.6656 4.22229 13.2835 4.16667 12.8873 4.16667C11.9783 4.16666 11.3499 4.60415 10.5041 5.24677L9.99912 5.63037L9.49479 5.24598C8.66235 4.61151 8.02018 4.16667 7.1274 4.16667Z" fill="#0A66C2" stroke="#0A66C2" stroke-width="0.6"/></svg></div>
+								</div>
+								<p>Бухучет и операции</p>
+								<p>Базовые отчеты</p>
+								<p>Поддержка по почте</p>
+								<p>Налоги и контрагенты</p>
+								<p>Расширенные отчеты</p>
+								<p>Приоритетная поддержка</p>
+								<p>Зарплата и кадры</p>
+								<p>Интеграции и API</p>
+								<p>Личный менеджер</p>
+								<p>Выделенная поддержка</p>
+							</div>
+							<div class="bottom">
+								<div class="price">
+									<p>Стоимость тарифа:</p>
+									<div class="cost">$49 <p>/мес</p></div>
+								</div>
+								<a href="" class="btn dp accent">Начать</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Survey Wizard -->
+		<section class="s-survey section">
+			<div class="container">
+				<span class="block_title">Обзор продукта</span>
+				<p class="page-desc">У нас есть к вам несколько вопросов, которые помогут нам улучшить наш продукт.</p>
+
+				<!-- Survey Start -->
+				<div class="survey_start">
+					<a href="#" class="btn blue survey_start_btn">Начать</a>
+					<div class="survey_time">
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="12" cy="12" r="9" stroke="#2B3F51" stroke-width="1.5" opacity="0.5"/>
+							<path d="M12 7V12L15 14" stroke="#2B3F51" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+						</svg>
+						<span>Занимает 1 минуту</span>
+					</div>
+				</div>
+
+				<!-- Question 1 -->
+				<div class="survey_step">
+					<ul class="survey_tabs">
+						<li class="active">Вопрос 1</li>
+						<li>Вопрос 2</li>
+						<li>Вопрос 3</li>
+						<li>Вопрос 4</li>
+						<li>Вопрос 5</li>
+					</ul>
+					<h3 class="survey_question">Общее качество — как бы вы оценили продукт?</h3>
+					<div class="rating_scale">
+						<button class="rating_btn">1</button>
+						<button class="rating_btn">2</button>
+						<button class="rating_btn">3</button>
+						<button class="rating_btn">4</button>
+						<button class="rating_btn">5</button>
+						<button class="rating_btn">6</button>
+						<button class="rating_btn">7</button>
+						<button class="rating_btn">8</button>
+						<button class="rating_btn active">9</button>
+						<button class="rating_btn">10</button>
+					</div>
+					<div class="survey_actions">
+						<a href="#" class="btn">Назад</a>
+						<a href="#" class="btn blue">Дальше</a>
+					</div>
+				</div>
+
+				<!-- Question 2 -->
+				<div class="survey_step">
+					<ul class="survey_tabs">
+						<li>Вопрос 1</li>
+						<li class="active">Вопрос 2</li>
+						<li>Вопрос 3</li>
+						<li>Вопрос 4</li>
+						<li>Вопрос 5</li>
+					</ul>
+					<h3 class="survey_question">Что вам в нем больше всего понравилось?</h3>
+					<div class="survey_field">
+						<input type="text" placeholder="Введите комментарий">
+					</div>
+					<div class="survey_actions">
+						<a href="#" class="btn">Назад</a>
+						<a href="#" class="btn blue">Дальше</a>
+					</div>
+				</div>
+
+				<!-- Question 3 -->
+				<div class="survey_step">
+					<ul class="survey_tabs">
+						<li>Вопрос 1</li>
+						<li>Вопрос 2</li>
+						<li class="active">Вопрос 3</li>
+						<li>Вопрос 4</li>
+						<li>Вопрос 5</li>
+					</ul>
+					<h3 class="survey_question">Какие области, по вашему мнению, нам следует улучшить?</h3>
+					<p class="survey_hint">Выбирайте столько, сколько вам нравится</p>
+					<div class="pill_list">
+						<button class="pill">Характеристики продукта</button>
+						<button class="pill active">Представление</button>
+						<button class="pill">Доступность</button>
+						<button class="pill">Служба поддержки клиентов</button>
+						<button class="pill">Другой</button>
+					</div>
+					<div class="survey_actions">
+						<a href="#" class="btn">Назад</a>
+						<a href="#" class="btn blue">Дальше</a>
+					</div>
+				</div>
+
+				<!-- Question 4 -->
+				<div class="survey_step">
+					<ul class="survey_tabs">
+						<li>Вопрос 1</li>
+						<li>Вопрос 2</li>
+						<li>Вопрос 3</li>
+						<li class="active">Вопрос 4</li>
+						<li>Вопрос 5</li>
+					</ul>
+					<h3 class="survey_question">Как вы узнали о нас?</h3>
+					<div class="survey_field form_group_select">
+						<select>
+							<option>Выберите один...</option>
+							<option>Поиск в интернете</option>
+							<option>Социальные сети</option>
+							<option>Рекомендация</option>
+							<option>Реклама</option>
+						</select>
+					</div>
+					<div class="survey_actions">
+						<a href="#" class="btn">Назад</a>
+						<a href="#" class="btn blue">Дальше</a>
+					</div>
+				</div>
+
+				<!-- Question 5 -->
+				<div class="survey_step">
+					<ul class="survey_tabs">
+						<li>Вопрос 1</li>
+						<li>Вопрос 2</li>
+						<li>Вопрос 3</li>
+						<li>Вопрос 4</li>
+						<li class="active">Вопрос 5</li>
+					</ul>
+					<h3 class="survey_question">Наконец, добавьте свой адрес электронной почты, чтобы получить эксклюзивную скидку</h3>
+					<div class="survey_field">
+						<input type="email" placeholder="Ваша почта">
+					</div>
+					<div class="survey_actions">
+						<a href="#" class="btn">Назад</a>
+						<a href="#" class="btn blue">Отправить</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services Management -->
+		<section class="s-services section">
+			<div class="container">
+				<div class="services_wrap">
+					<div class="services_left">
+						<h2>Управление услугами</h2>
+						<p class="services_desc">Виджет с активными услугами и детализация работ</p>
+						<div class="services_card">
+							<div class="services_card_icon">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect x="3" y="4" width="18" height="13" rx="2" stroke="#0A66C2" stroke-width="1.8"/>
+									<path d="M8 21H16" stroke="#0A66C2" stroke-width="1.8" stroke-linecap="round"/>
+									<path d="M12 17V21" stroke="#0A66C2" stroke-width="1.8" stroke-linecap="round"/>
+								</svg>
+							</div>
+							<div class="services_card_text">
+								<span>Удобство</span>
+								<p>Возможность корректировки, здесь можно отключить услугу или внести изменения в объеме, показатели</p>
+							</div>
+						</div>
+					</div>
+					<div class="services_right">
+						<div class="help_card">
+							<h3>Мы здесь, чтобы помочь</h3>
+							<p>Ответим на вопросы, разберемся с проблемами и покажем, как максимально использовать платформу</p>
+							<a href="#" class="btn blue help_btn_primary">Написать в чат</a>
+							<a href="#" class="btn help_btn_secondary">Связаться по телефону</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="f_top">
+			<div class="container">
+				<div class="f_top_wrap">
+					<div class="col">
+						<div class="top">
+							<a href="index.html" class="logo">
+								<div class="img"><img src="images/logo.svg" alt=""></div>
+								<p>Cloud Balance</p>
+							</a>
+							<ul class="f_info">
+								<li><a href="#">support@allinsaas.ru</a></li>
+								<li><a href="#">+7 (495) 000-0000</a></li>
+								<li><p>Москва, Россия, центр города</p></li>
+							</ul>
+						</div>
+						<ul class="soc">
+							<li><a href="#"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 10.0611C20 4.50451 15.5229 0 10 0C4.47715 0 0 4.50451 0 10.0611C0 15.0828 3.65684 19.2452 8.4375 20V12.9694H5.89844V10.0611H8.4375V7.84452C8.4375 5.32296 9.9305 3.93012 12.2146 3.93012C13.3088 3.93012 14.4531 4.12663 14.4531 4.12663V6.60261H13.1922C11.95 6.60261 11.5625 7.37822 11.5625 8.1739V10.0611H14.3359L13.8926 12.9694H11.5625V20C16.3432 19.2452 20 15.083 20 10.0611Z" fill="#2B3F51"/></svg></a></li>
+						</ul>
+					</div>
+					<div class="col menu">
+						<ul class="f_menu">
+							<li><a href="#">О платформе</a></li>
+							<li><a href="#">Функции</a></li>
+							<li><a href="#">Тарифы</a></li>
+							<li><a href="#">Вход</a></li>
+							<li><a href="#">Регистрация</a></li>
+						</ul>
+						<ul class="f_menu">
+							<li><a href="#">Поддержка</a></li>
+							<li><a href="#">Блог</a></li>
+							<li><a href="#">Интеграции</a></li>
+							<li><a href="#">Документация</a></li>
+							<li><a href="#">Статус сервиса</a></li>
+						</ul>
+					</div>
+					<div class="col">
+						<ul class="links">
+							<li><a href="">Политика конфиденциальности</a></li>
+							<li><a href="" class="active">Условия использования</a></li>
+							<li><a href="">Управление cookies</a></li>
+						</ul>
+						<p class="copy">&copy; 2025 All-in-One. Все права защищены.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+Cloud Balance — Ссылки на страницы
+Домен: https://79256beda08f.hosting.myjino.ru/
+
+=== Публичный сайт ===
+
+Главная (index)                        https://79256beda08f.hosting.myjino.ru/
+Создайте аккаунт — page2               https://79256beda08f.hosting.myjino.ru/page2.html
+Вернуть доступ — page3                 https://79256beda08f.hosting.myjino.ru/page3.html
+Основные разделы приложения — page4    https://79256beda08f.hosting.myjino.ru/page4.html
+Бухгалтерия и отчетность — page5       https://79256beda08f.hosting.myjino.ru/page5.html
+Зарплата и кадры — page6               https://79256beda08f.hosting.myjino.ru/page6.html
+Контрагенты — page7                    https://79256beda08f.hosting.myjino.ru/page7.html
+Поддержка — page8                      https://79256beda08f.hosting.myjino.ru/page8.html
+Как это работает — page9               https://79256beda08f.hosting.myjino.ru/page9.html
+Дашборд — page10                       https://79256beda08f.hosting.myjino.ru/page10.html
+
+=== Личный кабинет ===
+
+Профиль                                https://79256beda08f.hosting.myjino.ru/profile.html
+Управление проектами и услугами        https://79256beda08f.hosting.myjino.ru/services.html
+Компания                               https://79256beda08f.hosting.myjino.ru/company.html
