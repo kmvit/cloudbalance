@@ -10,3 +10,6 @@ __pycache__/
 db.sqlite3
 media/
 .claude/worktrees/
+staticfiles/
+.env
+.env.local
