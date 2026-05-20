@@ -68,16 +68,21 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if os.environ.get('POSTGRES_HOST'):
+if os.environ.get('POSTGRES_PRISMA_URL') or os.environ.get('POSTGRES_URL'):
+    import urllib.parse
+    _url = urllib.parse.urlparse(
+        os.environ.get('POSTGRES_PRISMA_URL') or os.environ['POSTGRES_URL']
+    )
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ['POSTGRES_DATABASE'],
-            'USER': os.environ['POSTGRES_USER'],
-            'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-            'HOST': os.environ['POSTGRES_HOST'],
-            'PORT': '5432',
+            'NAME': _url.path.lstrip('/'),
+            'USER': _url.username,
+            'PASSWORD': _url.password,
+            'HOST': _url.hostname,
+            'PORT': _url.port or 5432,
             'OPTIONS': {'sslmode': 'require'},
+            'DISABLE_SERVER_SIDE_CURSORS': True,
         }
     }
 else:
