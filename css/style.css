@@ -2460,13 +2460,28 @@ form select {
   background-position: right 32px center; }
 form input[type="checkbox"] {
   -webkit-appearance: none;
+  position: relative;
   width: 22px;
   height: 22px;
+  min-width: 22px;
   border-radius: 6px;
-  border: 1px solid rgba(10, 102, 194, 0.2); }
+  border: 1px solid rgba(10, 102, 194, 0.2);
+  cursor: pointer;
+  transition: 0.2s; }
   form input[type="checkbox"]:checked {
-    transition: 0.3s;
+    background-color: #0A66C2;
     border-color: #0A66C2; }
+  form input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 11px;
+    border: 2px solid #fff;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg); }
 form label {
   color: #2B3F51;
   font-size: 16px;

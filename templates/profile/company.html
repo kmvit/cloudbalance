@@ -1,0 +1,507 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Компания — Cloud Balance{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'css/company.css' %}">
+<style>
+.form_group input[type="text"],
+.form_group input[type="number"],
+.form_group input[type="date"],
+.form_group select {
+    display: block; width: 100%; padding: 0; height: auto;
+    font-size: 16px; line-height: 24px; color: #2B3F51;
+    background: transparent; border: none; border-radius: 0; outline: none;
+    font-family: "Ubuntu", sans-serif;
+    -webkit-appearance: none; appearance: none;
+    background-image: none;
+}
+.form_group input[type="text"]::placeholder,
+.form_group input[type="number"]::placeholder,
+.form_group input[type="date"]::placeholder { color: #2B3F51; opacity: 0.35; }
+.form_group select { cursor: pointer; padding-right: 24px; }
+/* Company switcher */
+.company_switcher {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 32px; align-items: center;
+}
+.company_chip {
+    display: inline-flex; align-items: center;
+    height: 36px; padding: 0 16px; border-radius: 10px;
+    font-size: 13px; font-weight: 500; font-family: "Ubuntu", sans-serif;
+    cursor: pointer; border: none; transition: 0.2s;
+    background: rgba(10,102,194,0.08); color: #0A66C2;
+}
+.company_chip:hover { background: rgba(10,102,194,0.15); }
+.company_chip.current { background: #0A66C2; color: #fff; cursor: default; }
+.company_chip.add {
+    background: transparent; border: 1.5px dashed rgba(10,102,194,0.35); color: #0A66C2;
+}
+.company_chip.add:hover { border-color: #0A66C2; background: rgba(10,102,194,0.06); }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% with active_step='company' %}
+{% include 'profile/_steps.html' %}
+{% endwith %}
+
+<section class="s-profile section">
+    <div class="container">
+        <h2 class="section_title">Компания</h2>
+
+        <!-- Переключатель компаний -->
+        <div class="company_switcher">
+            {% for company in companies %}
+            {% if company == object %}
+            <span class="company_chip current">{{ company.name|default:"Без названия" }}</span>
+            {% else %}
+            <form method="POST" action="{% url 'company' %}" style="margin:0;">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="switch">
+                <input type="hidden" name="company_id" value="{{ company.pk }}">
+                <button type="submit" class="company_chip">{{ company.name|default:"Без названия" }}</button>
+            </form>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        {% if form.errors %}
+        <div style="background:#fee;border:1px solid #f00;padding:12px 20px;border-radius:8px;margin-bottom:16px;font-size:13px;color:#900;">
+            {{ form.errors }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="{% url 'company' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="profile_wrap">
+
+                <!-- Левая колонка: Данные компании -->
+                <div class="profile_data">
+                    <div class="profile_avatar_block">
+                        <div class="avatar">
+                            {% if object.logo %}
+                            <img src="{{ object.logo.url }}" alt="Логотип">
+                            {% else %}
+                            <div class="avatar_fallback">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3" stroke="#0A66C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <input type="file" name="logo" id="company_logo_input" accept="image/*" style="display:none;"
+                               onchange="this.closest('form').submit();">
+                        <a href="#" class="avatar_edit" title="Загрузить логотип"
+                           onclick="document.getElementById('company_logo_input').click(); return false;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.71 7.04C21.1 6.65 21.1 6 20.71 5.63L18.37 3.29C18 2.9 17.35 2.9 16.96 3.29L15.12 5.12L18.87 8.87M3 17.25V21H6.75L17.81 9.93L14.06 6.18L3 17.25Z" fill="#0A66C2"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <h3>Данные компании</h3>
+
+                    <div class="form_group">
+                        <label>Наименование компании</label>
+                        <input type="text" name="{{ form.name.html_name }}"
+                            value="{{ object.name }}" placeholder="Наименование компании">
+                    </div>
+                    <div class="form_group">
+                        <label>Ваша деятельность в России</label>
+                        <input type="text" name="{{ form.industry.html_name }}"
+                            value="{{ object.industry }}" placeholder="Сфера деятельности">
+                    </div>
+                    <div class="form_group">
+                        <label>ИНН</label>
+                        <input type="text" name="{{ form.inn.html_name }}"
+                            value="{{ object.inn }}" placeholder="ИНН">
+                    </div>
+                    <div class="form_group">
+                        <label>КПП</label>
+                        <input type="text" name="{{ form.kpp.html_name }}"
+                            value="{{ object.kpp }}" placeholder="КПП">
+                    </div>
+                    <div class="form_group">
+                        <label>Юридический адрес</label>
+                        <input type="text" name="{{ form.legal_address.html_name }}"
+                            value="{{ object.legal_address }}" placeholder="г. Москва, ул. ...">
+                    </div>
+                    <div class="form_group">
+                        <label>Дата регистрации головной компании</label>
+                        <input type="date" name="{{ form.registration_date.html_name }}"
+                            value="{% if object.registration_date %}{{ object.registration_date|date:'Y-m-d' }}{% endif %}">
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label>Система налогообложения</label>
+                        <select name="{{ form.tax_system.html_name }}">
+                            <option value="">Выберите систему</option>
+                            {% for val, label in form.fields.tax_system.choices %}{% if val %}
+                            <option value="{{ val }}" {% if object.tax_system == val %}selected{% endif %}>{{ label }}</option>
+                            {% endif %}{% endfor %}
+                        </select>
+                        <span class="form_arrow"><svg width="12" height="7" viewBox="0 0 9 5" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></span>
+                    </div>
+
+                    <div style="margin-top:24px;">
+                        <button type="submit" class="btn" style="height:48px;padding:0 32px;border-radius:14px;border:none;cursor:pointer;font-size:14px;font-weight:700;font-family:'Ubuntu',sans-serif;background:#0A66C2;color:#fff;">Сохранить</button>
+                    </div>
+                </div>
+
+                <!-- Правая колонка -->
+                <div class="profile_settings">
+
+                    <div class="company_block">
+                        <h3>Детальная информация о компании</h3>
+                        <div class="form_group form_group_select">
+                            <label>Программа ведения бухгалтерии</label>
+                            <select name="{{ form.accounting_program.html_name }}">
+                                <option value="">Выберите программу</option>
+                                {% for val, label in form.fields.accounting_program.choices %}{% if val %}
+                                <option value="{{ val }}" {% if object.accounting_program == val %}selected{% endif %}>{{ label }}</option>
+                                {% endif %}{% endfor %}
+                            </select>
+                            <span class="form_arrow"><svg width="12" height="7" viewBox="0 0 9 5" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></span>
+                        </div>
+                        <div class="form_group form_group_select">
+                            <label>Система сдачи отчётности</label>
+                            <select name="{{ form.reporting_system.html_name }}">
+                                <option value="">Выберите систему</option>
+                                {% for val, label in form.fields.reporting_system.choices %}{% if val %}
+                                <option value="{{ val }}" {% if object.reporting_system == val %}selected{% endif %}>{{ label }}</option>
+                                {% endif %}{% endfor %}
+                            </select>
+                            <span class="form_arrow"><svg width="12" height="7" viewBox="0 0 9 5" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></span>
+                        </div>
+                        <div class="form_group form_group_select">
+                            <label>Кто ведёт учёт сейчас</label>
+                            <select name="{{ form.accountant_type.html_name }}">
+                                <option value="">Выберите вариант</option>
+                                {% for val, label in form.fields.accountant_type.choices %}{% if val %}
+                                <option value="{{ val }}" {% if object.accountant_type == val %}selected{% endif %}>{{ label }}</option>
+                                {% endif %}{% endfor %}
+                            </select>
+                            <span class="form_arrow"><svg width="12" height="7" viewBox="0 0 9 5" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></span>
+                        </div>
+                    </div>
+
+                    <div class="company_block">
+                        <h3>Банковские реквизиты</h3>
+                        <div class="form_group form_group_select">
+                            <label>Список банков, в которых обслуживается</label>
+                            <input type="text" name="{{ form.banks.html_name }}"
+                                value="{{ object.banks }}" placeholder="Сбербанк, Альфа-банк...">
+                            <span class="form_arrow"><svg width="12" height="7" viewBox="0 0 9 5" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></span>
+                        </div>
+                        <div class="form_group form_group_select">
+                            <label>Валюты</label>
+                            <input type="text" name="{{ form.currencies.html_name }}"
+                                value="{{ object.currencies }}" placeholder="RUB, USD...">
+                            <span class="form_arrow"><svg width="12" height="7" viewBox="0 0 9 5" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></span>
+                        </div>
+                        <div class="radio_group">
+                            <span class="radio_label">Наличие банк-клиента</span>
+                            <label class="radio">
+                                <input type="radio" name="{{ form.has_bank_client.html_name }}" value="True"
+                                    {% if object.has_bank_client %}checked{% endif %}>
+                                <span class="radio_dot"></span>Да
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="{{ form.has_bank_client.html_name }}" value="False"
+                                    {% if not object.has_bank_client %}checked{% endif %}>
+                                <span class="radio_dot"></span>Нет
+                            </label>
+                        </div>
+                        <div class="radio_group">
+                            <span class="radio_label">Передача второй подписи для автоплатежей</span>
+                            <label class="radio">
+                                <input type="radio" name="{{ form.has_second_sign.html_name }}" value="True"
+                                    {% if object.has_second_sign %}checked{% endif %}>
+                                <span class="radio_dot"></span>Да
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="{{ form.has_second_sign.html_name }}" value="False"
+                                    {% if not object.has_second_sign %}checked{% endif %}>
+                                <span class="radio_dot"></span>Нет
+                            </label>
+                        </div>
+                        <div class="form_group">
+                            <label>Среднее количество платёжных поручений в месяц</label>
+                            <input type="number" name="{{ form.avg_payments_per_month.html_name }}"
+                                value="{{ object.avg_payments_per_month }}" placeholder="0">
+                        </div>
+                        <div class="form_group">
+                            <label>Количество валютных операций (импорт/экспорт)</label>
+                            <input type="number" name="{{ form.foreign_currency_operations.html_name }}"
+                                value="{{ object.foreign_currency_operations }}" placeholder="0">
+                        </div>
+                    </div>
+
+                    <div class="company_block">
+                        <h3>Договорной документооборот</h3>
+                        <div class="form_group">
+                            <label>Количество договоров с покупателями и поставщиками</label>
+                            <input type="number" name="{{ form.contracts_count.html_name }}"
+                                value="{{ object.contracts_count }}" placeholder="0">
+                        </div>
+                        <div class="form_group form_group_select">
+                            <label>Ответственные за оформление документов</label>
+                            <select name="{{ form.document_responsible.html_name }}">
+                                <option value="">Выберите вариант</option>
+                                {% for val, label in form.fields.document_responsible.choices %}{% if val %}
+                                <option value="{{ val }}" {% if object.document_responsible == val %}selected{% endif %}>{{ label }}</option>
+                                {% endif %}{% endfor %}
+                            </select>
+                            <span class="form_arrow"><svg width="12" height="7" viewBox="0 0 9 5" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></span>
+                        </div>
+                        <div class="form_group">
+                            <label>Контракты с нерезидентами</label>
+                            <input type="number" name="{{ form.non_resident_contracts.html_name }}"
+                                value="{{ object.non_resident_contracts }}" placeholder="0">
+                        </div>
+                    </div>
+
+                    <div class="company_block">
+                        <h3>Таможенные операции</h3>
+                        <div class="radio_group">
+                            <label class="radio">
+                                <input type="radio" name="{{ form.has_customs.html_name }}" value="True"
+                                    {% if object.has_customs %}checked{% endif %}>
+                                <span class="radio_dot"></span>Есть
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="{{ form.has_customs.html_name }}" value="False"
+                                    {% if not object.has_customs %}checked{% endif %}>
+                                <span class="radio_dot"></span>Нет
+                            </label>
+                        </div>
+                        <div class="form_group">
+                            <label>Частота сверок с контрагентами (если чаще 1 раза в год)</label>
+                            <input type="text" name="{{ form.counterparty_reconciliation.html_name }}"
+                                value="{{ object.counterparty_reconciliation }}" placeholder="Например: раз в квартал">
+                        </div>
+                    </div>
+
+                    <div class="company_block">
+                        <h3>Активы и имущество</h3>
+                        <div class="form_group">
+                            <label>Наличие склада, недвижимости, земли</label>
+                            <input type="text" name="{{ form.has_property.html_name }}"
+                                value="{{ object.has_property }}" placeholder="Склад, офис, земля...">
+                        </div>
+                        <div class="form_group">
+                            <label>Количество основных средств и НМА</label>
+                            <input type="number" name="{{ form.fixed_assets_count.html_name }}"
+                                value="{{ object.fixed_assets_count }}" placeholder="0">
+                        </div>
+                        <div class="form_group">
+                            <label>Автомобилей на балансе</label>
+                            <input type="number" name="{{ form.vehicles_count.html_name }}"
+                                value="{{ object.vehicles_count }}" placeholder="0">
+                        </div>
+                    </div>
+
+                    <div class="company_block">
+                        <h3>Корпоративные карты</h3>
+                        <div class="radio_group">
+                            <label class="radio">
+                                <input type="radio" name="{{ form.has_corporate_cards.html_name }}" value="True"
+                                    {% if object.has_corporate_cards %}checked{% endif %}>
+                                <span class="radio_dot"></span>Используются
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="{{ form.has_corporate_cards.html_name }}" value="False"
+                                    {% if not object.has_corporate_cards %}checked{% endif %}>
+                                <span class="radio_dot"></span>Нет
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="company_block">
+                        <h3>Кадровый учёт и зарплата</h3>
+                        <div class="form_group form_group_select">
+                            <label>Программа для кадрового учёта</label>
+                            <select name="{{ form.hr_program.html_name }}">
+                                <option value="">Выберите программу</option>
+                                {% for val, label in form.fields.hr_program.choices %}{% if val %}
+                                <option value="{{ val }}" {% if object.hr_program == val %}selected{% endif %}>{{ label }}</option>
+                                {% endif %}{% endfor %}
+                            </select>
+                            <span class="form_arrow"><svg width="12" height="7" viewBox="0 0 9 5" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></span>
+                        </div>
+                        <div class="form_group">
+                            <label>Количество сотрудников (штат + ГПХ)</label>
+                            <input type="number" name="{{ form.employees_count.html_name }}"
+                                value="{{ object.employees_count }}" placeholder="0">
+                        </div>
+                        <div class="form_group">
+                            <label>Обособленные подразделения</label>
+                            <input type="number" name="{{ form.separate_divisions_count.html_name }}"
+                                value="{{ object.separate_divisions_count }}" placeholder="0">
+                        </div>
+                    </div>
+
+                    <div class="company_block">
+                        <h3>Дополнительные настройки</h3>
+                        <div class="form_group form_group_select">
+                            <label>Представительские расходы (банкеты, поездки)</label>
+                            <select name="{{ form.entertainment_expenses.html_name }}">
+                                <option value="">Выберите вариант</option>
+                                {% for val, label in form.fields.entertainment_expenses.choices %}{% if val %}
+                                <option value="{{ val }}" {% if object.entertainment_expenses == val %}selected{% endif %}>{{ label }}</option>
+                                {% endif %}{% endfor %}
+                            </select>
+                            <span class="form_arrow"><svg width="12" height="7" viewBox="0 0 9 5" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg></span>
+                        </div>
+                        <div class="form_group">
+                            <label>Инвестиционные командировки (количество в месяц)</label>
+                            <input type="number" name="{{ form.business_trips_count.html_name }}"
+                                value="{{ object.business_trips_count }}" placeholder="0">
+                        </div>
+                        <div class="form_group">
+                            <label>Авансовые отчёты (количество в месяц)</label>
+                            <input type="number" name="{{ form.expense_reports_count.html_name }}"
+                                value="{{ object.expense_reports_count }}" placeholder="0">
+                        </div>
+                    </div>
+
+                    <div class="company_block">
+                        <h3>Управленческая отчётность</h3>
+                        <div class="radio_group">
+                            <label class="radio">
+                                <input type="radio" name="{{ form.needs_management_report.html_name }}" value="True"
+                                    {% if object.needs_management_report %}checked{% endif %}>
+                                <span class="radio_dot"></span>Требуется
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="{{ form.needs_management_report.html_name }}" value="False"
+                                    {% if not object.needs_management_report %}checked{% endif %}>
+                                <span class="radio_dot"></span>Нет
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <div class="projects_tag_wrap">
+            <span class="projects_tag">проекты</span>
+        </div>
+    </div>
+</section>
+
+<!-- Открытые проекты -->
+<section class="s-adv section">
+    <div class="container">
+        <span class="block_title">Открытые проекты</span>
+        <p class="page-desc">Видите все активные работы одним взглядом</p>
+        <div class="adv_wrap">
+            <ul class="adv_list">
+                <li style="background-image: url({% static 'images/Card0.png' %});" class="image">
+                    <div class="icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.21481 8.21493C11.2291 5.20068 15.398 3.33337 19.9999 3.33337C24.6018 3.33337 28.7708 5.20068 31.785 8.21493C34.7993 11.2292 36.6666 15.3981 36.6666 20C36.6666 24.602 34.7993 28.7709 31.785 31.7852C28.7708 34.7994 24.6018 36.6667 19.9999 36.6667C15.398 36.6667 11.2291 34.7994 8.21481 31.7852C5.20056 28.7709 3.33325 24.602 3.33325 20C3.33325 15.3981 5.20056 11.2292 8.21481 8.21493ZM19.9999 6.66671C16.3176 6.66671 12.9865 8.15727 10.5718 10.5719C8.15714 12.9866 6.66659 16.3177 6.66659 20C6.66659 23.6824 8.15714 27.0134 10.5718 29.4281C12.9865 31.8428 16.3176 33.3334 19.9999 33.3334C23.6823 33.3334 27.0133 31.8428 29.428 29.4281C31.8427 27.0134 33.3333 23.6824 33.3333 20C33.3333 16.3177 31.8427 12.9866 29.428 10.5719C27.0133 8.15727 23.6823 6.66671 19.9999 6.66671Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9999 11.6666C20.9204 11.6666 21.6666 12.4128 21.6666 13.3333V20C21.6666 20.9204 20.9204 21.6666 19.9999 21.6666C19.0794 21.6666 18.3333 20.9204 18.3333 20L18.3333 13.3333C18.3333 12.4128 19.0794 11.6666 19.9999 11.6666Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M18.8214 18.8215C19.4723 18.1707 20.5276 18.1707 21.1784 18.8215L24.5118 22.1549C25.1626 22.8057 25.1626 23.861 24.5118 24.5119C23.8609 25.1628 22.8056 25.1628 22.1547 24.5119L18.8214 21.1786C18.1705 20.5277 18.1705 19.4724 18.8214 18.8215Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="title">Сроки сдачи отчетности</div>
+                    <p>Не пропустите ни одних важных сроков и дедлайнов</p>
+                    <a href="" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50423C7.98207 2.27642 8.35142 2.27642 8.57923 2.50423L12.6626 6.58756C12.8904 6.81537 12.8904 7.18471 12.6626 7.41252L8.57923 11.4959C8.35142 11.7237 7.98207 11.7237 7.75427 11.4959C7.52646 11.268 7.52646 10.8987 7.75427 10.6709L10.8418 7.58337H1.75008C1.42792 7.58337 1.16675 7.32221 1.16675 7.00004C1.16675 6.67787 1.42792 6.41671 1.75008 6.41671H10.8418L7.75427 3.32919C7.52646 3.10138 7.52646 2.73203 7.75427 2.50423Z" fill="#0A66C2"/></svg></a>
+                </li>
+                <li style="background-image: url({% static 'images/Card.png' %});" class="image">
+                    <div class="icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.458 6.86413C20.1587 6.77863 19.8415 6.77863 19.5422 6.86414L11.2089 9.24509C10.4934 9.44952 10.0001 10.1035 10.0001 10.8476V19.805C10.0001 23.5728 11.8197 27.1086 14.8856 29.2986L19.0314 32.2598C19.6108 32.6738 20.3893 32.6738 20.9688 32.2598L25.1145 29.2986C28.1805 27.1086 30.0001 23.5728 30.0001 19.805V10.8476C30.0001 10.1035 29.5068 9.44952 28.7913 9.24509L20.458 6.86413ZM18.6265 3.65906C19.5242 3.40255 20.4759 3.40255 21.3737 3.65905L29.707 6.04001C31.8535 6.65329 33.3334 8.61522 33.3334 10.8476V19.805C33.3334 24.6493 30.9939 29.1954 27.052 32.0111L22.9063 34.9723C21.1678 36.2141 18.8324 36.2141 17.0939 34.9723L12.9482 32.0111C9.00623 29.1954 6.66675 24.6493 6.66675 19.805V10.8476C6.66675 8.61523 8.14663 6.6533 10.2931 6.04001L18.6265 3.65906Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M26.1399 13.7842C26.8114 14.4137 26.8454 15.4684 26.2159 16.1399L19.9659 22.8066C19.3688 23.4435 18.3814 23.5117 17.7024 22.963L13.9524 19.9327C13.2365 19.3542 13.1251 18.3048 13.7037 17.5889C14.2822 16.8729 15.3316 16.7616 16.0475 17.3401L18.5931 19.3972L23.7841 13.8601C24.4136 13.1886 25.4684 13.1546 26.1399 13.7842Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="title">Открытые больничные листы</div>
+                    <p>Отслеживайте статусы и даты больничных сотрудников</p>
+                    <a href="" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50423C7.98207 2.27642 8.35142 2.27642 8.57923 2.50423L12.6626 6.58756C12.8904 6.81537 12.8904 7.18471 12.6626 7.41252L8.57923 11.4959C8.35142 11.7237 7.98207 11.7237 7.75427 11.4959C7.52646 11.268 7.52646 10.8987 7.75427 10.6709L10.8418 7.58337H1.75008C1.42792 7.58337 1.16675 7.32221 1.16675 7.00004C1.16675 6.67787 1.42792 6.41671 1.75008 6.41671H10.8418L7.75427 3.32919C7.52646 3.10138 7.52646 2.73203 7.75427 2.50423Z" fill="#0A66C2"/></svg></a>
+                </li>
+                <li style="background-image: url({% static 'images/Card0.png' %});" class="image">
+                    <div class="icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3334 6.66671C11.4925 6.66671 10.0001 8.15909 10.0001 10V30C10.0001 31.841 11.4925 33.3334 13.3334 33.3334H26.6667C28.5077 33.3334 30.0001 31.841 30.0001 30V14.7141C30.0001 14.2721 29.8245 13.8481 29.5119 13.5356L23.1312 7.15486C22.8187 6.8423 22.3947 6.66671 21.9527 6.66671H13.3334Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="title">Топ статьи расходов</div>
+                    <p>Посмотри, куда уходят деньги вашего проекта</p>
+                    <a href="" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50423C7.98207 2.27642 8.35142 2.27642 8.57923 2.50423L12.6626 6.58756C12.8904 6.81537 12.8904 7.18471 12.6626 7.41252L8.57923 11.4959C8.35142 11.7237 7.98207 11.7237 7.75427 11.4959C7.52646 11.268 7.52646 10.8987 7.75427 10.6709L10.8418 7.58337H1.75008C1.42792 7.58337 1.16675 7.32221 1.16675 7.00004C1.16675 6.67787 1.42792 6.41671 1.75008 6.41671H10.8418L7.75427 3.32919C7.52646 3.10138 7.52646 2.73203 7.75427 2.50423Z" fill="#0A66C2"/></svg></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Безопасность -->
+<section class="s-security section">
+    <div class="container">
+        <div class="security_wrap">
+            <div class="security_info">
+                <h2>Обеспечение безопасности: защита данных и контроль доступа к системе</h2>
+                <p class="security_desc">Наша система предлагает надежные меры безопасности для защиты ваших данных. Используйте двухфакторную аутентификацию и журнал действий для контроля доступа.</p>
+                <ul class="security_list">
+                    <li>
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="10" width="16" height="11" rx="2" stroke="#0A66C2" stroke-width="1.8"/>
+                                <path d="M8 10V7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7V10" stroke="#0A66C2" stroke-width="1.8" stroke-linecap="round"/>
+                                <circle cx="12" cy="15.5" r="1.3" fill="#0A66C2"/>
+                            </svg>
+                        </div>
+                        <div class="text">
+                            <span>Безопасность данных</span>
+                            <p>Двухфакторная аутентификация защищает ваш аккаунт от несанкционированного доступа.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3L4 6V12C4 16.5 7.5 20.25 12 21C16.5 20.25 20 16.5 20 12V6L12 3Z" stroke="#0A66C2" stroke-width="1.8" stroke-linejoin="round"/>
+                                <path d="M9 12L11 14L15 10" stroke="#0A66C2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="text">
+                            <span>Контроль доступа</span>
+                            <p>Ограничьте доступ по IP для повышения уровня безопасности вашей учетной записи.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="security_methods">
+                <div class="methods_card">
+                    <h3>Способы подтверждения входа</h3>
+                    <p class="methods_desc">Двухфакторная аутентификация (2FA) обеспечивает более надёжную защиту аккаунта.</p>
+                    <div class="method_item">
+                        <div class="method_text">
+                            <span>Телефон</span>
+                            <p>Нужно вводить пароль, а также код из SMS или последние четыре цифры номера, с которого поступит звонок</p>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" checked>
+                            <span class="toggle_slider"></span>
+                        </label>
+                    </div>
+                    <div class="method_item">
+                        <div class="method_text">
+                            <span>SMS</span>
+                            <p>Мы отправим код на выбранный вами номер.</p>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" checked>
+                            <span class="toggle_slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

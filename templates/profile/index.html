@@ -1,0 +1,275 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Личный кабинет — Cloud Balance{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<style>
+/* Инпут внутри .form_group выглядит как .form_value */
+.form_group input,
+.form_group select {
+    display: block;
+    width: 100%;
+    padding: 0;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2B3F51;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: "Ubuntu", sans-serif;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.form_group input::placeholder {
+    color: #2B3F51;
+    opacity: 0.35;
+}
+.form_group select {
+    cursor: pointer;
+    padding-right: 24px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% with active_step='profile' %}
+{% include 'profile/_steps.html' %}
+{% endwith %}
+
+<section class="s-profile section">
+    <div class="container">
+        <h2 class="section_title">Профиль</h2>
+        <form method="POST" enctype="multipart/form-data" action="{% url 'profile' %}">
+            {% csrf_token %}
+            <div class="profile_wrap">
+
+                <!-- Left Column: Avatar + User Data -->
+                <div class="profile_data">
+                    <div class="profile_avatar_block">
+                        <div class="avatar" id="avatar-preview-wrap">
+                            {% if user.avatar %}
+                            <img id="avatar-preview" src="{{ user.avatar.url }}" alt="Аватар">
+                            {% else %}
+                            <div class="avatar_fallback" id="avatar-fallback">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" fill="#0A66C2"/>
+                                    <path d="M12 14.5C6.99 14.5 2.91 17.86 2.91 22C2.91 22.28 3.13 22.5 3.41 22.5H20.59C20.87 22.5 21.09 22.28 21.09 22C21.09 17.86 17.01 14.5 12 14.5Z" fill="#0A66C2"/>
+                                </svg>
+                            </div>
+                            <img id="avatar-preview" src="" alt="Аватар" style="display:none;width:100%;height:100%;object-fit:cover;">
+                            {% endif %}
+                        </div>
+                        <label class="avatar_edit" title="Загрузить фото" style="cursor:pointer;" for="avatar-file-input">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.71 7.04C21.1 6.65 21.1 6 20.71 5.63L18.37 3.29C18 2.9 17.35 2.9 16.96 3.29L15.12 5.12L18.87 8.87M3 17.25V21H6.75L17.81 9.93L14.06 6.18L3 17.25Z" fill="#0A66C2"/>
+                            </svg>
+                        </label>
+                        <input type="file" id="avatar-file-input" name="{{ form.avatar.html_name }}" accept="image/*" style="display:none;">
+                    </div>
+
+                    <h3>Данные пользователя</h3>
+
+                    <div class="form_group">
+                        <label>Имя</label>
+                        <input type="text" name="{{ form.first_name.html_name }}"
+                            value="{{ user.first_name }}" placeholder="Имя">
+                    </div>
+                    <div class="form_group">
+                        <label>Фамилия</label>
+                        <input type="text" name="{{ form.last_name.html_name }}"
+                            value="{{ user.last_name }}" placeholder="Фамилия">
+                    </div>
+                    <div class="form_group">
+                        <label>E-mail</label>
+                        <input type="text" name="{{ form.email.html_name }}"
+                            value="{{ user.email }}" placeholder="Email">
+                    </div>
+                    <div class="form_group">
+                        <label>Телефон</label>
+                        <input type="text" name="{{ form.phone.html_name }}"
+                            value="{{ user.phone }}" placeholder="+7 (___) ___-__-__">
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:24px;">
+                        <button type="submit" class="btn blue" style="height:48px;padding:0 32px;border-radius:14px;border:none;cursor:pointer;font-size:14px;font-weight:700;font-family:'Ubuntu',sans-serif;">Сохранить</button>
+                        <a href="{% url 'logout' %}" class="btn" style="height:48px;padding:0 24px;border-radius:14px;display:inline-flex;align-items:center;font-size:14px;">Выйти</a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Notifications + System -->
+                <div class="profile_settings">
+                    <div class="notifications_block">
+                        <h3>Настройка уведомлений</h3>
+                        <p class="notifications_desc">Получать новости, акции и обновления от Cloud Balance</p>
+                        <div class="toggle_list">
+                            <div class="toggle_item">
+                                <span>SMS</span>
+                                <label class="toggle">
+                                    <input type="checkbox" name="{{ form.notify_sms.html_name }}"
+                                        {% if user.notify_sms %}checked{% endif %}>
+                                    <span class="toggle_slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle_item">
+                                <span>E-mail</span>
+                                <label class="toggle">
+                                    <input type="checkbox" name="{{ form.notify_email.html_name }}"
+                                        {% if user.notify_email %}checked{% endif %}>
+                                    <span class="toggle_slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle_item">
+                                <span>Push</span>
+                                <label class="toggle">
+                                    <input type="checkbox" name="{{ form.notify_push.html_name }}"
+                                        {% if user.notify_push %}checked{% endif %}>
+                                    <span class="toggle_slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle_item">
+                                <span>Telegram</span>
+                                <label class="toggle">
+                                    <input type="checkbox" name="{{ form.notify_telegram.html_name }}"
+                                        {% if user.notify_telegram %}checked{% endif %}>
+                                    <span class="toggle_slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system_block">
+                        <h3>Системные настройки</h3>
+                        <div class="form_group form_group_select">
+                            <label>Язык интерфейса</label>
+                            <div class="form_value">Русский</div>
+                            <span class="form_arrow">
+                                <svg width="12" height="7" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.46337 4.64019C4.31692 4.78664 4.07952 4.78664 3.93307 4.64019L0.109834 0.816938C-0.0366113 0.670488 -0.0366113 0.433087 0.109834 0.286637L0.286614 0.109838C0.433059 -0.0366125 0.670494 -0.0366125 0.816944 0.109838L4.19822 3.49114L7.57952 0.109838C7.72597 -0.0366125 7.96337 -0.0366125 8.10982 0.109838L8.28662 0.286637C8.43307 0.433087 8.43307 0.670488 8.28662 0.816938L4.46337 4.64019Z" fill="#2B3F51"/></svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Open Projects -->
+<section class="s-adv section">
+    <div class="container">
+        <span class="block_title">Открытые проекты</span>
+        <p class="page-desc">Видите все активные работы одной единой коллекции</p>
+        <div class="adv_wrap">
+            <ul class="adv_list">
+                <li style="background-image: url({% static 'images/Card0.png' %});" class="image">
+                    <div class="icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.21481 8.21493C11.2291 5.20068 15.398 3.33337 19.9999 3.33337C24.6018 3.33337 28.7708 5.20068 31.785 8.21493C34.7993 11.2292 36.6666 15.3981 36.6666 20C36.6666 24.602 34.7993 28.7709 31.785 31.7852C28.7708 34.7994 24.6018 36.6667 19.9999 36.6667C15.398 36.6667 11.2291 34.7994 8.21481 31.7852C5.20056 28.7709 3.33325 24.602 3.33325 20C3.33325 15.3981 5.20056 11.2292 8.21481 8.21493ZM19.9999 6.66671C16.3176 6.66671 12.9865 8.15727 10.5718 10.5719C8.15714 12.9866 6.66659 16.3177 6.66659 20C6.66659 23.6824 8.15714 27.0134 10.5718 29.4281C12.9865 31.8428 16.3176 33.3334 19.9999 33.3334C23.6823 33.3334 27.0133 31.8428 29.428 29.4281C31.8427 27.0134 33.3333 23.6824 33.3333 20C33.3333 16.3177 31.8427 12.9866 29.428 10.5719C27.0133 8.15727 23.6823 6.66671 19.9999 6.66671Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M19.9999 11.6666C20.9204 11.6666 21.6666 12.4128 21.6666 13.3333V20C21.6666 20.9204 20.9204 21.6666 19.9999 21.6666C19.0794 21.6666 18.3333 20.9204 18.3333 20L18.3333 13.3333C18.3333 12.4128 19.0794 11.6666 19.9999 11.6666Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M18.8214 18.8215C19.4723 18.1707 20.5276 18.1707 21.1784 18.8215L24.5118 22.1549C25.1626 22.8057 25.1626 23.861 24.5118 24.5119C23.8609 25.1628 22.8056 25.1628 22.1547 24.5119L18.8214 21.1786C18.1705 20.5277 18.1705 19.4724 18.8214 18.8215Z" fill="white"/></svg>
+                    </div>
+                    <div class="title">Сроки сдачи отчетности</div>
+                    <p>Не пропустите ни одних важных сроков и дедлайнов</p>
+                    <a href="#" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50423C7.98207 2.27642 8.35142 2.27642 8.57923 2.50423L12.6626 6.58756C12.8904 6.81537 12.8904 7.18471 12.6626 7.41252L8.57923 11.4959C8.35142 11.7237 7.98207 11.7237 7.75427 11.4959C7.52646 11.268 7.52646 10.8987 7.75427 10.6709L10.8418 7.58337H1.75008C1.42792 7.58337 1.16675 7.32221 1.16675 7.00004C1.16675 6.67787 1.42792 6.41671 1.75008 6.41671H10.8418L7.75427 3.32919C7.52646 3.10138 7.52646 2.73203 7.75427 2.50423Z" fill="#0A66C2"/></svg></a>
+                </li>
+                <li style="background-image: url({% static 'images/Card.png' %});" class="image">
+                    <div class="icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.458 6.86413C20.1587 6.77863 19.8415 6.77863 19.5422 6.86414L11.2089 9.24509C10.4934 9.44952 10.0001 10.1035 10.0001 10.8476V19.805C10.0001 23.5728 11.8197 27.1086 14.8856 29.2986L19.0314 32.2598C19.6108 32.6738 20.3893 32.6738 20.9688 32.2598L25.1145 29.2986C28.1805 27.1086 30.0001 23.5728 30.0001 19.805V10.8476C30.0001 10.1035 29.5068 9.44952 28.7913 9.24509L20.458 6.86413ZM18.6265 3.65906C19.5242 3.40255 20.4759 3.40255 21.3737 3.65905L29.707 6.04001C31.8535 6.65329 33.3334 8.61522 33.3334 10.8476V19.805C33.3334 24.6493 30.9939 29.1954 27.052 32.0111L22.9063 34.9723C21.1678 36.2141 18.8324 36.2141 17.0939 34.9723L12.9482 32.0111C9.00623 29.1954 6.66675 24.6493 6.66675 19.805V10.8476C6.66675 8.61523 8.14663 6.6533 10.2931 6.04001L18.6265 3.65906Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M26.1399 13.7842C26.8114 14.4137 26.8454 15.4684 26.2159 16.1399L19.9659 22.8066C19.3688 23.4435 18.3814 23.5117 17.7024 22.963L13.9524 19.9327C13.2365 19.3542 13.1251 18.3048 13.7037 17.5889C14.2822 16.8729 15.3316 16.7616 16.0475 17.3401L18.5931 19.3972L23.7841 13.8601C24.4136 13.1886 25.4684 13.1546 26.1399 13.7842Z" fill="white"/></svg>
+                    </div>
+                    <div class="title">Открытые больничные листы</div>
+                    <p>Отслеживайте статусы и даты больничных сотрудников</p>
+                    <a href="#" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50423C7.98207 2.27642 8.35142 2.27642 8.57923 2.50423L12.6626 6.58756C12.8904 6.81537 12.8904 7.18471 12.6626 7.41252L8.57923 11.4959C8.35142 11.7237 7.98207 11.7237 7.75427 11.4959C7.52646 11.268 7.52646 10.8987 7.75427 10.6709L10.8418 7.58337H1.75008C1.42792 7.58337 1.16675 7.32221 1.16675 7.00004C1.16675 6.67787 1.42792 6.41671 1.75008 6.41671H10.8418L7.75427 3.32919C7.52646 3.10138 7.52646 2.73203 7.75427 2.50423Z" fill="#0A66C2"/></svg></a>
+                </li>
+                <li style="background-image: url({% static 'images/Card0.png' %});" class="image">
+                    <div class="icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.3333 28.3333C13.3333 27.4128 14.0794 26.6666 14.9999 26.6666H24.9999C25.9204 26.6666 26.6666 27.4128 26.6666 28.3333C26.6666 29.2538 25.9204 30 24.9999 30H14.9999C14.0794 30 13.3333 29.2538 13.3333 28.3333Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M13.3333 21.6667C13.3333 20.7462 14.0794 20 14.9999 20H24.9999C25.9204 20 26.6666 20.7462 26.6666 21.6667C26.6666 22.5871 25.9204 23.3333 24.9999 23.3333H14.9999C14.0794 23.3333 13.3333 22.5871 13.3333 21.6667Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M13.3334 6.66671C11.4925 6.66671 10.0001 8.15909 10.0001 10V30C10.0001 31.841 11.4925 33.3334 13.3334 33.3334H26.6667C28.5077 33.3334 30.0001 31.841 30.0001 30V14.7141C30.0001 14.2721 29.8245 13.8481 29.5119 13.5356L23.1312 7.15486C22.8187 6.8423 22.3947 6.66671 21.9527 6.66671H13.3334ZM6.66675 10C6.66675 6.31814 9.65152 3.33337 13.3334 3.33337H21.9527C23.2788 3.33337 24.5506 3.86016 25.4882 4.79784L31.8689 11.1786C32.8066 12.1162 33.3334 13.388 33.3334 14.7141V30C33.3334 33.6819 30.3486 36.6667 26.6667 36.6667H13.3334C9.65152 36.6667 6.66675 33.6819 6.66675 30V10Z" fill="white"/></svg>
+                    </div>
+                    <div class="title">Топ статьи расходов</div>
+                    <p>Посмотри, куда уходят деньги вашего проекта</p>
+                    <a href="#" class="btn wh">Подробнее <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.75427 2.50423C7.98207 2.27642 8.35142 2.27642 8.57923 2.50423L12.6626 6.58756C12.8904 6.81537 12.8904 7.18471 12.6626 7.41252L8.57923 11.4959C8.35142 11.7237 7.98207 11.7237 7.75427 11.4959C7.52646 11.268 7.52646 10.8987 7.75427 10.6709L10.8418 7.58337H1.75008C1.42792 7.58337 1.16675 7.32221 1.16675 7.00004C1.16675 6.67787 1.42792 6.41671 1.75008 6.41671H10.8418L7.75427 3.32919C7.52646 3.10138 7.52646 2.73203 7.75427 2.50423Z" fill="#0A66C2"/></svg></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Security Section -->
+<section class="s-security section">
+    <div class="container">
+        <div class="security_wrap">
+            <div class="security_info">
+                <h2>Обеспечение безопасности: защита данных и контроль доступа к системе</h2>
+                <p class="security_desc">Наша система предлагает надежные меры безопасности для защиты ваших данных. Используйте двухфакторную аутентификацию и журнал действий для контроля доступа.</p>
+                <ul class="security_list">
+                    <li>
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="11" rx="2" stroke="#0A66C2" stroke-width="1.8"/><path d="M8 10V7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7V10" stroke="#0A66C2" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="15.5" r="1.3" fill="#0A66C2"/></svg>
+                        </div>
+                        <div class="text">
+                            <span>Безопасность данных</span>
+                            <p>Двухфакторная аутентификация защитит ваш аккаунт от несанкционированного доступа</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3L4 6V12C4 16.5 7.5 20.25 12 21C16.5 20.25 20 16.5 20 12V6L12 3Z" stroke="#0A66C2" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12L11 14L15 10" stroke="#0A66C2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="text">
+                            <span>Контроль доступа</span>
+                            <p>Управляйте доступом по IP для повышения уровня безопасности вашей системы</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="security_methods">
+                <div class="methods_card">
+                    <h3>Способы подтверждения входа</h3>
+                    <p class="methods_desc">Двухфакторная аутентификация (2FA) обеспечивает более надёжную защиту аккаунта.</p>
+                    <div class="method_item">
+                        <div class="method_text">
+                            <span>Телефон</span>
+                            <p>Нужно вводить пароль, а также код из SMS или последние четыре цифры номера, с которого поступит звонок</p>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <span class="toggle_slider"></span>
+                        </label>
+                    </div>
+                    <div class="method_item">
+                        <div class="method_text">
+                            <span>SMS</span>
+                            <p>Мы отправим код на выбранный вами номер.</p>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <span class="toggle_slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('avatar-file-input').addEventListener('change', function() {
+    var file = this.files[0];
+    if (!file) return;
+
+    var preview = document.getElementById('avatar-preview');
+    var fallback = document.getElementById('avatar-fallback');
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+        if (fallback) fallback.style.display = 'none';
+        preview.onload = function() {
+            document.querySelector('form[enctype]').submit();
+        };
+    };
+    reader.readAsDataURL(file);
+});
+</script>
+{% endblock %}

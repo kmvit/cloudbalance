@@ -2,3 +2,11 @@
 /**/Thumbs.db
 /**/*.DS_Store
 /**/debug.log
+venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+db.sqlite3
+media/
+.claude/worktrees/
